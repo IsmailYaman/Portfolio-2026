@@ -70,19 +70,28 @@ export function Navigation() {
   return (
     <>
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 ${
           isScrolled
             ? 'bg-white/80 backdrop-blur-xl shadow-lg shadow-black/5'
             : 'bg-transparent'
         }`}
         initial={{ y: -100 }}
-        animate={{ y: isVisible ? 0 : -100 }}
+        animate={{
+          y: isVisible ? 0 : -100,
+          backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.8)' : 'rgba(255, 255, 255, 0)'
+        }}
         transition={{
-          duration: 0.3,
-          ease: [0.25, 0.1, 0.25, 1],
-          type: 'spring',
-          stiffness: 200,
-          damping: 25
+          y: {
+            duration: 0.3,
+            ease: [0.25, 0.1, 0.25, 1]
+          },
+          backgroundColor: {
+            duration: 0.3,
+            ease: 'easeInOut'
+          }
+        }}
+        style={{
+          backdropFilter: isScrolled ? 'blur(12px)' : 'none'
         }}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
@@ -147,12 +156,17 @@ export function Navigation() {
               })}
               <motion.button
                 onClick={() => scrollToSection('#contact')}
-                className="ml-4 px-6 py-2.5 bg-[#1a1a1a] text-white text-sm font-medium rounded-full hover:bg-[#c45d3a] transition-all duration-300 shadow-lg shadow-black/10 hover:shadow-[#c45d3a]/20"
+                className="ml-4 px-6 py-2.5 bg-[#1a1a1a] text-white text-sm font-medium rounded-full shadow-lg shadow-black/10"
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: 0.4 }}
-                whileHover={{ scale: 1.05, y: -2 }}
+                whileHover={{
+                  scale: 1.05,
+                  y: -2,
+                  backgroundColor: '#c45d3a',
+                  boxShadow: '0 20px 25px -5px rgba(196, 93, 58, 0.2), 0 10px 10px -5px rgba(196, 93, 58, 0.1)'
+                }}
                 whileTap={{ scale: 0.95 }}
               >
                 Hire Me
@@ -233,14 +247,17 @@ export function Navigation() {
           ))}
           <motion.button
             onClick={() => scrollToSection('#contact')}
-            className="mt-4 px-10 py-4 bg-[#1a1a1a] text-white text-lg font-medium rounded-full hover:bg-[#c45d3a] transition-colors duration-300 shadow-xl z-10"
+            className="mt-4 px-10 py-4 bg-[#1a1a1a] text-white text-lg font-medium rounded-full shadow-xl z-10"
             style={{ fontFamily: "'DM Sans', sans-serif" }}
             initial={{ opacity: 0, y: 20 }}
             animate={
               isMobileMenuOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
             }
             transition={{ duration: 0.4, delay: 0.5 }}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{
+              scale: 1.05,
+              backgroundColor: '#c45d3a'
+            }}
             whileTap={{ scale: 0.95 }}
           >
             Hire Me
