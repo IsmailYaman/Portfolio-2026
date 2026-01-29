@@ -1,8 +1,12 @@
+// Main section components
 export { Hero } from './Hero'
 export { About } from './About'
-export { Projects } from './Projects'
-export { Skills } from './Skills'
-export { Education } from './Education'
-export { Footer } from './Footer'
-export { Navigation } from './Navigation'
-export { ProjectDetail } from './ProjectDetail'
+export { Projects } from './projects'
+export { Skills } from './skills'
+export { Education } from './education'
+export { Footer } from './footer'
+export { Navigation } from './navigation'
+export { ProjectDetail } from './project-detail'
+
+// Shared utilities
+export { SectionHeader, useMouseParallax } from './shared'

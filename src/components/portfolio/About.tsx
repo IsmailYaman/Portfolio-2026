@@ -1,35 +1,13 @@
 'use client'
 
-import { motion, useInView, useMotionValue, useTransform } from 'motion/react'
-import { useRef, useEffect } from 'react'
+import { motion, useInView } from 'motion/react'
+import { useRef } from 'react'
+import { useMouseParallax } from './shared'
 
 export function About() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
-
-  // Mouse parallax effect
-  const mouseX = useMotionValue(0)
-  const mouseY = useMotionValue(0)
-
-  const imageX = useTransform(mouseX, [-1, 1], [-10, 10])
-  const imageY = useTransform(mouseY, [-1, 1], [-10, 10])
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e
-      const { innerWidth, innerHeight } = window
-
-      // Normalize to -1 to 1
-      const x = (clientX / innerWidth) * 2 - 1
-      const y = (clientY / innerHeight) * 2 - 1
-
-      mouseX.set(x)
-      mouseY.set(y)
-    }
-
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [mouseX, mouseY])
+  const { x: imageX, y: imageY } = useMouseParallax({ intensity: 10 })
 
   return (
     <section id="about" className="py-32 md:py-40 bg-white" ref={ref}>

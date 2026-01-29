@@ -1,33 +1,16 @@
 'use client'
 
-import { motion, useMotionValue, useTransform } from 'motion/react'
+import { motion, useTransform } from 'motion/react'
 import { ArrowDown } from 'lucide-react'
-import { useEffect } from 'react'
+import { useMouseParallax } from './shared'
 
 export function Hero() {
-  const mouseX = useMotionValue(0)
-  const mouseY = useMotionValue(0)
+  const { mouseX, mouseY } = useMouseParallax()
 
   const blob1X = useTransform(mouseX, [-1, 1], [-20, 20])
   const blob1Y = useTransform(mouseY, [-1, 1], [-20, 20])
   const blob2X = useTransform(mouseX, [-1, 1], [15, -15])
   const blob2Y = useTransform(mouseY, [-1, 1], [15, -15])
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e
-      const { innerWidth, innerHeight } = window
-
-      const x = (clientX / innerWidth) * 2 - 1
-      const y = (clientY / innerHeight) * 2 - 1
-
-      mouseX.set(x)
-      mouseY.set(y)
-    }
-
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [mouseX, mouseY])
 
   const scrollToProjects = () => {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })

@@ -4,15 +4,14 @@ import { motion, useInView } from 'motion/react'
 import { useRef, useState } from 'react'
 import { Link } from '@tanstack/react-router'
 import { ArrowRight } from 'lucide-react'
-import { projects, type Project } from '@/data/projects'
+import type { Project } from '@/data/projects'
 
-function ProjectCard({
-  project,
-  index,
-}: {
+interface ProjectCardProps {
   project: Project
   index: number
-}) {
+}
+
+export function ProjectCard({ project, index }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false)
   const cardRef = useRef(null)
   const isInView = useInView(cardRef, { once: true, margin: '-50px' })
@@ -109,54 +108,5 @@ function ProjectCard({
         </div>
       </motion.article>
     </Link>
-  )
-}
-
-export function Projects() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-50px' })
-
-  return (
-    <section id="projects" className="py-32 md:py-40 bg-[#f5f3f0]" ref={ref}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-        {/* Section header */}
-        <div className="text-center mb-20">
-          <motion.span
-            className="text-[#c45d3a] font-medium tracking-[0.2em] uppercase text-sm"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-          >
-            Selected Work
-          </motion.span>
-          <motion.h2
-            className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-[#1a1a1a] mt-4"
-            style={{ fontFamily: "'Playfair Display', serif" }}
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            Featured <span className="italic">Projects</span>
-          </motion.h2>
-          <motion.p
-            className="text-[#5a5a5a] text-lg max-w-2xl mx-auto mt-6"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            A curated selection of projects that showcase my approach to solving
-            complex problems through thoughtful design and clean code.
-          </motion.p>
-        </div>
-
-        {/* Projects grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.title} project={project} index={index} />
-          ))}
-        </div>
-      </div>
-    </section>
   )
 }

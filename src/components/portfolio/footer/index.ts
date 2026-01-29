@@ -1,0 +1,5 @@
+export { Footer } from './Footer'
+export { FooterCTA } from './FooterCTA'
+export { ContactGrid } from './ContactGrid'
+export { FooterBottom } from './FooterBottom'
+export { socialLinks, quickLinks, contactInfo, type SocialLink } from './footer-data'
