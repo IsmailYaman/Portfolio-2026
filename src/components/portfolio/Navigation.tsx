@@ -1,12 +1,14 @@
 'use client'
 
-import { motion, useScroll, useMotionValueEvent } from 'motion/react'
-import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
+import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'motion/react'
+import { useState, useEffect, useRef } from 'react'
+import { Menu, X, ChevronDown } from 'lucide-react'
+import { Link, useLocation } from '@tanstack/react-router'
+import { projects } from '@/data/projects'
 
 const navLinks = [
   { name: 'About', href: '#about' },
-  { name: 'Projects', href: '#projects' },
+  { name: 'Projects', href: '#projects', hasDropdown: true },
   { name: 'Skills', href: '#skills' },
   { name: 'Education', href: '#education' },
   { name: 'Contact', href: '#contact' },
@@ -18,7 +20,12 @@ export function Navigation() {
   const [activeSection, setActiveSection] = useState('')
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
+  const [isProjectsDropdownOpen, setIsProjectsDropdownOpen] = useState(false)
+  const [isMobileProjectsOpen, setIsMobileProjectsOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
   const { scrollY } = useScroll()
+  const location = useLocation()
+  const isHomePage = location.pathname === '/'
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     setIsScrolled(latest > 50)
@@ -59,12 +66,30 @@ export function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsProjectsDropdownOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  const handleNavClick = (href: string) => {
+    if (isHomePage) {
+      const element = document.querySelector(href)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    } else {
+      // Navigate to home with hash
+      window.location.href = '/' + href
     }
     setIsMobileMenuOpen(false)
+    setIsProjectsDropdownOpen(false)
   }
 
   return (
@@ -99,41 +124,131 @@ export function Navigation() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
           <nav className="flex items-center justify-between h-20">
             {/* Logo with animated underline */}
-            <motion.a
-              href="#"
-              className={`relative font-serif text-xl font-medium transition-colors duration-300 group ${
-                isScrolled ? 'text-[#1a1a1a]' : 'text-[#1a1a1a]'
-              }`}
-              style={{ fontFamily: "'Playfair Display', serif" }}
-              onClick={(e) => {
-                e.preventDefault()
-                window.scrollTo({ top: 0, behavior: 'smooth' })
+            <Link
+              to="/"
+              onClick={() => {
+                if (isHomePage) {
+                  window.scrollTo({ top: 0, behavior: 'smooth' })
+                }
               }}
-              whileHover={{ scale: 1.02 }}
             >
-              Alex<span className="text-[#c45d3a]">.</span>Chen
               <motion.span
-                className="absolute -bottom-1 left-0 h-0.5 bg-[#c45d3a]"
-                initial={{ width: 0 }}
-                whileHover={{ width: '100%' }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.a>
+                className={`relative font-serif text-xl font-medium transition-colors duration-300 group ${
+                  isScrolled ? 'text-[#1a1a1a]' : 'text-[#1a1a1a]'
+                }`}
+                style={{ fontFamily: "'Playfair Display', serif" }}
+                whileHover={{ scale: 1.02 }}
+              >
+                Alex<span className="text-[#c45d3a]">.</span>Chen
+                <motion.span
+                  className="absolute -bottom-1 left-0 h-0.5 bg-[#c45d3a]"
+                  initial={{ width: 0 }}
+                  whileHover={{ width: '100%' }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.span>
+            </Link>
 
             {/* Desktop navigation with active indicators */}
             <div className="hidden md:flex items-center gap-1">
               {navLinks.map((link, index) => {
                 const isActive = activeSection === link.href.substring(1)
+                const isProjectPage = location.pathname.startsWith('/projects/')
+
+                // Projects dropdown
+                if (link.hasDropdown) {
+                  return (
+                    <div key={link.name} className="relative" ref={dropdownRef}>
+                      <motion.button
+                        onClick={() => setIsProjectsDropdownOpen(!isProjectsDropdownOpen)}
+                        className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 flex items-center gap-1 ${
+                          isActive || isProjectPage
+                            ? 'text-[#c45d3a]'
+                            : 'text-[#5a5a5a] hover:text-[#c45d3a]'
+                        }`}
+                        style={{ fontFamily: "'DM Sans', sans-serif" }}
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: 0.1 + index * 0.05 }}
+                        whileHover={{ y: -2 }}
+                      >
+                        {link.name}
+                        <motion.span
+                          animate={{ rotate: isProjectsDropdownOpen ? 180 : 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <ChevronDown className="w-3 h-3" />
+                        </motion.span>
+                        {(isActive || isProjectPage) && (
+                          <motion.span
+                            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#c45d3a] rounded-full"
+                            layoutId="activeIndicator"
+                            transition={{
+                              type: 'spring',
+                              stiffness: 380,
+                              damping: 30,
+                            }}
+                          />
+                        )}
+                      </motion.button>
+
+                      {/* Dropdown menu */}
+                      <AnimatePresence>
+                        {isProjectsDropdownOpen && (
+                          <motion.div
+                            className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-[#e8e4df] overflow-hidden"
+                            initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            {/* All Projects link */}
+                            <button
+                              onClick={() => handleNavClick('#projects')}
+                              className="w-full px-4 py-3 text-left text-sm font-medium text-[#1a1a1a] hover:bg-[#f5f3f0] hover:text-[#c45d3a] transition-colors duration-200 border-b border-[#e8e4df]"
+                              style={{ fontFamily: "'DM Sans', sans-serif" }}
+                            >
+                              All Projects
+                            </button>
+
+                            {/* Individual projects */}
+                            <div className="py-2">
+                              {projects.map((project) => (
+                                <Link
+                                  key={project.slug}
+                                  to="/projects/$slug"
+                                  params={{ slug: project.slug }}
+                                  onClick={() => setIsProjectsDropdownOpen(false)}
+                                  className="flex items-center gap-3 px-4 py-2.5 hover:bg-[#f5f3f0] transition-colors duration-200 group"
+                                >
+                                  <span
+                                    className="w-2 h-2 rounded-full flex-shrink-0"
+                                    style={{ backgroundColor: project.color }}
+                                  />
+                                  <span
+                                    className="text-sm text-[#5a5a5a] group-hover:text-[#c45d3a] transition-colors duration-200 truncate"
+                                    style={{ fontFamily: "'DM Sans', sans-serif" }}
+                                  >
+                                    {project.title}
+                                  </span>
+                                </Link>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  )
+                }
+
                 return (
                   <motion.button
                     key={link.name}
-                    onClick={() => scrollToSection(link.href)}
+                    onClick={() => handleNavClick(link.href)}
                     className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 ${
                       isActive
                         ? 'text-[#c45d3a]'
-                        : isScrolled
-                          ? 'text-[#5a5a5a] hover:text-[#c45d3a]'
-                          : 'text-[#5a5a5a] hover:text-[#c45d3a]'
+                        : 'text-[#5a5a5a] hover:text-[#c45d3a]'
                     }`}
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
                     initial={{ opacity: 0, y: -20 }}
@@ -157,7 +272,7 @@ export function Navigation() {
                 )
               })}
               <motion.button
-                onClick={() => scrollToSection('#contact')}
+                onClick={() => handleNavClick('#contact')}
                 className="ml-4 px-6 py-2.5 bg-[#1a1a1a] text-white text-sm font-medium rounded-full shadow-lg shadow-black/10"
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -230,25 +345,94 @@ export function Navigation() {
             transition={{ duration: 0.6 }}
           />
 
-          {navLinks.map((link, index) => (
-            <motion.button
-              key={link.name}
-              onClick={() => scrollToSection(link.href)}
-              className="relative text-3xl font-medium text-[#1a1a1a] hover:text-[#c45d3a] transition-colors duration-300 z-10"
-              style={{ fontFamily: "'Playfair Display', serif" }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={
-                isMobileMenuOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-              }
-              transition={{ duration: 0.4, delay: index * 0.08 }}
-              whileHover={{ scale: 1.05, x: 10 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {link.name}
-            </motion.button>
-          ))}
+          {navLinks.map((link, index) => {
+            // Projects with expandable submenu
+            if (link.hasDropdown) {
+              return (
+                <div key={link.name} className="flex flex-col items-center z-10">
+                  <motion.button
+                    onClick={() => setIsMobileProjectsOpen(!isMobileProjectsOpen)}
+                    className="relative text-3xl font-medium text-[#1a1a1a] hover:text-[#c45d3a] transition-colors duration-300 flex items-center gap-2"
+                    style={{ fontFamily: "'Playfair Display', serif" }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={
+                      isMobileMenuOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                    }
+                    transition={{ duration: 0.4, delay: index * 0.08 }}
+                    whileHover={{ scale: 1.05, x: 10 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {link.name}
+                    <motion.span
+                      animate={{ rotate: isMobileProjectsOpen ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <ChevronDown className="w-5 h-5" />
+                    </motion.span>
+                  </motion.button>
+
+                  <AnimatePresence>
+                    {isMobileProjectsOpen && (
+                      <motion.div
+                        className="flex flex-col items-center gap-3 mt-4"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <button
+                          onClick={() => handleNavClick('#projects')}
+                          className="text-lg text-[#5a5a5a] hover:text-[#c45d3a] transition-colors duration-200"
+                          style={{ fontFamily: "'DM Sans', sans-serif" }}
+                        >
+                          All Projects
+                        </button>
+                        {projects.map((project) => (
+                          <Link
+                            key={project.slug}
+                            to="/projects/$slug"
+                            params={{ slug: project.slug }}
+                            onClick={() => {
+                              setIsMobileMenuOpen(false)
+                              setIsMobileProjectsOpen(false)
+                            }}
+                            className="flex items-center gap-2 text-lg text-[#5a5a5a] hover:text-[#c45d3a] transition-colors duration-200"
+                            style={{ fontFamily: "'DM Sans', sans-serif" }}
+                          >
+                            <span
+                              className="w-2 h-2 rounded-full"
+                              style={{ backgroundColor: project.color }}
+                            />
+                            {project.title}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              )
+            }
+
+            return (
+              <motion.button
+                key={link.name}
+                onClick={() => handleNavClick(link.href)}
+                className="relative text-3xl font-medium text-[#1a1a1a] hover:text-[#c45d3a] transition-colors duration-300 z-10"
+                style={{ fontFamily: "'Playfair Display', serif" }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={
+                  isMobileMenuOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                }
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                whileHover={{ scale: 1.05, x: 10 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {link.name}
+              </motion.button>
+            )
+          })}
           <motion.button
-            onClick={() => scrollToSection('#contact')}
+            onClick={() => handleNavClick('#contact')}
             className="mt-4 px-10 py-4 bg-[#1a1a1a] text-white text-lg font-medium rounded-full shadow-xl z-10"
             style={{ fontFamily: "'DM Sans', sans-serif" }}
             initial={{ opacity: 0, y: 20 }}

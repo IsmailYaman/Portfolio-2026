@@ -20,6 +20,7 @@ import { Route as AuthSignInRouteImport } from './routes/_auth/sign-in'
 import { Route as AuthResetPasswordRouteImport } from './routes/_auth/reset-password'
 import { Route as AuthForgotPasswordRouteImport } from './routes/_auth/forgot-password'
 import { Route as ApiHelloRouteImport } from './routes/_api/hello'
+import { Route as PublicProjectsSlugRouteImport } from './routes/_public/projects/$slug'
 
 const PublicRoute = PublicRouteImport.update({
   id: '/_public',
@@ -74,6 +75,11 @@ const ApiHelloRoute = ApiHelloRouteImport.update({
   path: '/hello',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PublicProjectsSlugRoute = PublicProjectsSlugRouteImport.update({
+  id: '/projects/$slug',
+  path: '/projects/$slug',
+  getParentRoute: () => PublicRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/hello': typeof ApiHelloRoute
@@ -84,6 +90,7 @@ export interface FileRoutesByFullPath {
   '/sign-up': typeof AuthSignUpRoute
   '/example-protected-route': typeof ProtectedExampleProtectedRouteRoute
   '/': typeof PublicIndexRoute
+  '/projects/$slug': typeof PublicProjectsSlugRoute
 }
 export interface FileRoutesByTo {
   '/hello': typeof ApiHelloRoute
@@ -94,6 +101,7 @@ export interface FileRoutesByTo {
   '/sign-up': typeof AuthSignUpRoute
   '/example-protected-route': typeof ProtectedExampleProtectedRouteRoute
   '/': typeof PublicIndexRoute
+  '/projects/$slug': typeof PublicProjectsSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -108,6 +116,7 @@ export interface FileRoutesById {
   '/_auth/sign-up': typeof AuthSignUpRoute
   '/_protected/example-protected-route': typeof ProtectedExampleProtectedRouteRoute
   '/_public/': typeof PublicIndexRoute
+  '/_public/projects/$slug': typeof PublicProjectsSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -120,6 +129,7 @@ export interface FileRouteTypes {
     | '/sign-up'
     | '/example-protected-route'
     | '/'
+    | '/projects/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/hello'
@@ -130,6 +140,7 @@ export interface FileRouteTypes {
     | '/sign-up'
     | '/example-protected-route'
     | '/'
+    | '/projects/$slug'
   id:
     | '__root__'
     | '/_auth'
@@ -143,6 +154,7 @@ export interface FileRouteTypes {
     | '/_auth/sign-up'
     | '/_protected/example-protected-route'
     | '/_public/'
+    | '/_public/projects/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -231,6 +243,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiHelloRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_public/projects/$slug': {
+      id: '/_public/projects/$slug'
+      path: '/projects/$slug'
+      fullPath: '/projects/$slug'
+      preLoaderRoute: typeof PublicProjectsSlugRouteImport
+      parentRoute: typeof PublicRoute
+    }
   }
 }
 
@@ -266,10 +285,12 @@ const ProtectedRouteWithChildren = ProtectedRoute._addFileChildren(
 
 interface PublicRouteChildren {
   PublicIndexRoute: typeof PublicIndexRoute
+  PublicProjectsSlugRoute: typeof PublicProjectsSlugRoute
 }
 
 const PublicRouteChildren: PublicRouteChildren = {
   PublicIndexRoute: PublicIndexRoute,
+  PublicProjectsSlugRoute: PublicProjectsSlugRoute,
 }
 
 const PublicRouteWithChildren =
