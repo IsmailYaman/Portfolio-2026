@@ -70,15 +70,12 @@ export function Navigation() {
   return (
     <>
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-50 ${
-          isScrolled
-            ? 'bg-white/80 backdrop-blur-xl shadow-lg shadow-black/5'
-            : 'bg-transparent'
-        }`}
+        className="fixed top-0 left-0 right-0 z-50"
         initial={{ y: -100 }}
         animate={{
           y: isVisible ? 0 : -100,
-          backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.8)' : 'rgba(255, 255, 255, 0)'
+          backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.8)' : 'rgba(255, 255, 255, 0)',
+          boxShadow: isScrolled ? '0 10px 15px -3px rgba(0, 0, 0, 0.05)' : '0 0 0 0 rgba(0, 0, 0, 0)'
         }}
         transition={{
           y: {
@@ -88,10 +85,15 @@ export function Navigation() {
           backgroundColor: {
             duration: 0.3,
             ease: 'easeInOut'
+          },
+          boxShadow: {
+            duration: 0.3,
+            ease: 'easeInOut'
           }
         }}
         style={{
-          backdropFilter: isScrolled ? 'blur(12px)' : 'none'
+          backdropFilter: isScrolled ? 'blur(12px)' : 'none',
+          WebkitBackdropFilter: isScrolled ? 'blur(12px)' : 'none'
         }}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
