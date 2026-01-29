@@ -34,6 +34,8 @@ export function Navigation() {
     if (latest > lastScrollY && latest > 100) {
       // Scrolling down & past 100px
       setIsVisible(false)
+      // Close dropdown when header hides
+      setIsProjectsDropdownOpen(false)
     } else if (latest < lastScrollY) {
       // Scrolling up
       setIsVisible(true)
