@@ -16,10 +16,23 @@ export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('')
+  const [isVisible, setIsVisible] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
   const { scrollY } = useScroll()
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     setIsScrolled(latest > 50)
+
+    // Hide/show nav based on scroll direction
+    if (latest > lastScrollY && latest > 100) {
+      // Scrolling down & past 100px
+      setIsVisible(false)
+    } else if (latest < lastScrollY) {
+      // Scrolling up
+      setIsVisible(true)
+    }
+
+    setLastScrollY(latest)
   })
 
   // Track active section
@@ -63,8 +76,14 @@ export function Navigation() {
             : 'bg-transparent'
         }`}
         initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        animate={{ y: isVisible ? 0 : -100 }}
+        transition={{
+          duration: 0.3,
+          ease: [0.25, 0.1, 0.25, 1],
+          type: 'spring',
+          stiffness: 200,
+          damping: 25
+        }}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
           <nav className="flex items-center justify-between h-20">
