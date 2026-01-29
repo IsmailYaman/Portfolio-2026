@@ -46,7 +46,7 @@ export function ProjectHero({ project, headerY, headerOpacity }: ProjectHeroProp
               transition={{ duration: 0.5, delay: 0.1 }}
             >
               <span
-                className="w-12 h-1 rounded-full"
+                className="w-12 h-[2px] rounded-full "
                 style={{ backgroundColor: project.color }}
               />
               <span

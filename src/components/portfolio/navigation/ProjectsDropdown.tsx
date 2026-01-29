@@ -28,7 +28,7 @@ export function ProjectsDropdown({
     <div className="relative" ref={dropdownRef}>
       <motion.button
         onClick={onToggle}
-        className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 flex items-center gap-1 ${
+        className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 flex items-center gap-1 cursor-pointer ${
           isActive ? 'text-[#c45d3a]' : 'text-[#5a5a5a] hover:text-[#c45d3a]'
         }`}
         style={{ fontFamily: "'DM Sans', sans-serif" }}
@@ -69,7 +69,7 @@ export function ProjectsDropdown({
             {/* All Projects link */}
             <button
               onClick={() => onNavClick('#projects')}
-              className="w-full px-4 py-3 text-left text-sm font-medium text-[#1a1a1a] hover:bg-[#f5f3f0] hover:text-[#c45d3a] transition-colors duration-200 border-b border-[#e8e4df]"
+              className="w-full px-4 py-3 cursor-pointer text-left text-sm font-medium text-[#1a1a1a] hover:bg-[#f5f3f0] hover:text-[#c45d3a] transition-colors duration-200 border-b border-[#e8e4df]"
               style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
               All Projects

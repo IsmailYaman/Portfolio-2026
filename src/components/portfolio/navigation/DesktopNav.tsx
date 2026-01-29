@@ -48,7 +48,7 @@ export function DesktopNav({
           <motion.button
             key={link.name}
             onClick={() => onNavClick(link.href)}
-            className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 ${
+            className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 cursor-pointer ${
               isActive
                 ? 'text-[#c45d3a]'
                 : 'text-[#5a5a5a] hover:text-[#c45d3a]'
@@ -78,7 +78,7 @@ export function DesktopNav({
       {/* Hire Me button */}
       <motion.button
         onClick={() => onNavClick('#contact')}
-        className="ml-4 px-6 py-2.5 bg-[#1a1a1a] text-white text-sm font-medium rounded-full shadow-lg shadow-black/10"
+        className="ml-4 px-6 py-2.5 bg-[#1a1a1a] text-white text-sm font-medium rounded-full shadow-lg shadow-black/10 cursor-pointer"
         style={{ fontFamily: "'DM Sans', sans-serif" }}
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
