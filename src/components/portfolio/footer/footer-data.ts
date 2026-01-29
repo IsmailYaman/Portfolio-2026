@@ -16,7 +16,7 @@ export const socialLinks: SocialLink[] = [
 export const quickLinks = ['About', 'Projects', 'Skills', 'Education']
 
 export const contactInfo = {
-  email: 'hello@alexchen.dev',
-  phone: '+1 (415) 555-1234',
-  location: 'San Francisco, CA',
+  email: 'hello@ismailkayadelen.com',
+  phone: '+31 6 12 34 56 78',
+  location: 'Rotterdam, The Netherlands',
 }

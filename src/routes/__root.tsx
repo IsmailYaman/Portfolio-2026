@@ -9,6 +9,7 @@ import type { QueryClient } from '@tanstack/react-query'
 import { Toaster } from '@/components/ui/sonner'
 import { ThemeProvider } from 'next-themes'
 import { authMiddleware } from '@/server/functions/auth'
+import { LenisProvider } from '@/components/providers'
 
 interface MyRouterContext {
   queryClient: QueryClient
@@ -90,7 +91,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <LenisProvider>
+            {children}
+          </LenisProvider>
           <Toaster />
         </ThemeProvider>
         <Scripts />

@@ -30,11 +30,10 @@ export function TimelineItem({ item, index, isInView }: TimelineItemProps) {
       <div className="absolute left-8 md:left-1/2 -translate-x-1/2 z-10">
         <motion.div
           className="w-16 h-16 bg-white rounded-full border-2 border-[#e8e4df] flex items-center justify-center shadow-lg"
-          initial={{ scale: 0, rotate: -180 }}
-          animate={isInView ? { scale: 1, rotate: 0 } : {}}
+          initial={{ scale: 0}}
+          animate={isInView ? { scale: 1 } : {}}
           transition={{
             duration: 0.6,
-            delay: 0.5 + index * 0.15,
             type: 'spring',
             stiffness: 200,
             damping: 15,
@@ -43,7 +42,6 @@ export function TimelineItem({ item, index, isInView }: TimelineItemProps) {
             scale: 1.15,
             borderColor: '#c45d3a',
             boxShadow: '0 10px 30px rgba(196, 93, 58, 0.2)',
-            rotate: 360,
             transition: { duration: 0.4 },
           }}
         >
