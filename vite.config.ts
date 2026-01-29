@@ -6,6 +6,7 @@ import tailwindcss from '@tailwindcss/vite'
 import devtoolsJson from 'vite-plugin-devtools-json'
 import { nitroV2Plugin } from '@tanstack/nitro-v2-vite-plugin'
 
+const isVercel = process.env.VERCEL === '1'
 const forSites = process.env?.FOR_SITES === 'true'
 
 const config = defineConfig({
@@ -16,10 +17,11 @@ const config = defineConfig({
     }),
     tailwindcss(),
     tanstackStart(),
-    forSites &&
+    // Use vercel preset when deploying to Vercel, node preset for other deployments
+    (isVercel || forSites) &&
       nitroV2Plugin({
         compatibilityDate: '2025-10-08',
-        preset: 'node',
+        preset: isVercel ? 'vercel' : 'node',
       }),
     devtoolsJson(),
     viteReact(),
