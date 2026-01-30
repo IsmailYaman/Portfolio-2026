@@ -28,7 +28,7 @@ export function About() {
               transition={{ duration: 0.4 }}
             >
               <img
-                src="/serious-izzy.jpeg"
+                src="/Shadowizzy.png"
                 alt="Ismail Kayadelen - Frontend Developer"
                 className="w-full h-full object-cover"
               />
