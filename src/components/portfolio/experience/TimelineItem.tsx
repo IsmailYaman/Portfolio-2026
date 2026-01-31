@@ -1,10 +1,10 @@
 'use client'
 
 import { motion } from 'motion/react'
-import type { EducationItem } from './education-data'
+import type { ExperienceItem } from './experience-data'
 
 interface TimelineItemProps {
-  item: EducationItem
+  item: ExperienceItem
   index: number
   isInView: boolean
 }

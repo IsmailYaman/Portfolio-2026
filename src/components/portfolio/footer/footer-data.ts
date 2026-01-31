@@ -13,7 +13,7 @@ export const socialLinks: SocialLink[] = [
   { name: 'Dribbble', icon: Dribbble, href: '#' },
 ]
 
-export const quickLinks = ['About', 'Projects', 'Skills', 'Education']
+export const quickLinks = ['About', 'Projects', 'Skills', 'Experience']
 
 export const contactInfo = {
   email: 'hello@ismailkayadelen.com',

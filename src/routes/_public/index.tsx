@@ -4,7 +4,7 @@ import {
   About,
   Projects,
   Skills,
-  Education,
+  Experience,
   Footer,
   Navigation,
 } from '@/components/portfolio'
@@ -21,7 +21,7 @@ function Index() {
       <About />
       <Projects />
       <Skills />
-      <Education />
+      <Experience />
       <Footer />
     </main>
   )

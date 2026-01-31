@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'motion/react'
-import { education } from './education-data'
+import { experience } from './experience-data'
 import { TimelineItem } from './TimelineItem'
 
 interface TimelineProps {
@@ -25,7 +25,7 @@ export function Timeline({ isInView }: TimelineProps) {
       />
 
       <div className="space-y-12">
-        {education.map((item, index) => (
+        {experience.map((item, index) => (
           <TimelineItem
             key={item.title}
             item={item}
