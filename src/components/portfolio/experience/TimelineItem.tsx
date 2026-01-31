@@ -23,7 +23,6 @@ export function TimelineItem({ item, index, isInView }: TimelineItemProps) {
       transition={{
         duration: 0.6,
         delay: 0.4 + index * 0.15,
-        ease: [0.25, 0.46, 0.45, 0.94],
       }}
     >
       {/* Icon circle */}
@@ -34,7 +33,6 @@ export function TimelineItem({ item, index, isInView }: TimelineItemProps) {
           animate={isInView ? { scale: 1 } : {}}
           transition={{
             duration: 0.6,
-            type: 'spring',
             stiffness: 200,
             damping: 15,
           }}
@@ -52,7 +50,7 @@ export function TimelineItem({ item, index, isInView }: TimelineItemProps) {
       {/* Content card */}
       <div
         className={`ml-24 md:ml-0 md:w-[calc(50%-4rem)] ${
-          isEven ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left'
+          isEven ? 'md:pr-8' : 'md:pl-8'
         }`}
       >
         <motion.div
@@ -61,34 +59,45 @@ export function TimelineItem({ item, index, isInView }: TimelineItemProps) {
             y: -8,
             scale: 1.02,
           }}
-          transition={{ duration: 0.3, ease: 'easeOut' }}
+          transition={{ duration: 0.3}}
         >
-          <motion.span
-            className="text-[#c45d3a] text-sm font-medium"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{
-              duration: 0.4,
-              delay: 0.6 + index * 0.15,
-            }}
-          >
-            {item.date}
-          </motion.span>
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-12 h-12 rounded-lg bg-[#f5f3f0] p-2 flex-shrink-0">
+              <img
+                src={item.logo}
+                alt={`${item.institution} logo`}
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div>
+              <p
+                className="text-[#5a5a5a] text-sm font-medium"
+                style={{ fontFamily: "'DM Sans', sans-serif" }}
+              >
+                {item.institution}
+              </p>
+              <motion.span
+                className="text-[#c45d3a] text-xs"
+                style={{ fontFamily: "'DM Sans', sans-serif" }}
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : {}}
+                transition={{
+                  duration: 0.4,
+                  delay: 0.6 + index * 0.15,
+                }}
+              >
+                {item.date}
+              </motion.span>
+            </div>
+          </div>
           <h3
-            className="font-serif text-lg font-medium text-[#1a1a1a] mt-2"
+            className="font-serif text-lg font-medium text-[#1a1a1a]"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
             {item.title}
           </h3>
           <p
-            className="text-[#5a5a5a] text-sm mt-1"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
-          >
-            {item.institution}
-          </p>
-          <p
-            className="text-[#6a6a6a] text-sm mt-3 leading-relaxed"
+            className="text-[#6a6a6a] text-sm mt-2 leading-relaxed"
             style={{ fontFamily: "'DM Sans', sans-serif" }}
           >
             {item.description}

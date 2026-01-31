@@ -6,6 +6,7 @@ export interface ExperienceItem {
   date: string
   description: string
   icon: LucideIcon
+  logo: string
 }
 
 export const experience: ExperienceItem[] = [
@@ -16,38 +17,43 @@ export const experience: ExperienceItem[] = [
     description:
       'Returned to Notive as a full frontend developer, building modern web applications and contributing to the technical direction of projects.',
     icon: Briefcase,
+    logo: '/logos/notive.png',
   },
   {
     title: 'Frontend Developer',
     institution: 'Ventaro',
     date: 'May 2024 - Present',
     description:
-      'Working on frontend development projects, creating engaging user experiences and scalable web solutions.',
+      'Ventaro, a Notive company where the focus lies on smalle scale projects.Working on Framer and Shopify project, and supporting existing clients with questions.',
     icon: Briefcase,
+    logo: '/logos/ventaro.png',
   },
   {
     title: 'Founder',
     institution: 'YAMOTION',
     date: 'Nov 2024 - Present',
     description:
-      'Founded YAMOTION, building and leading my own venture in the digital space.',
+      'Founded YAMOTION, where I focus on creating websites and webshops for my clients.',
     icon: Briefcase,
+    logo: '/logos/yamotion.png',
   },
   {
     title: 'XR Developer Intern (Thesis)',
     institution: '360fabriek',
     date: 'Sep 2023 - Feb 2024',
     description:
-      'Completed my thesis internship focusing on XR development, exploring immersive technologies and their applications.',
+      'Completed my thesis internship focusing on XR development, exploring immersive technologies and their applications in the healthcare industry.',
     icon: Briefcase,
+    logo: '/logos/360fabriek.png',
   },
   {
     title: 'Frontend Developer',
     institution: 'WeAreReasonablePeople',
     date: 'Aug 2022 - Sep 2023',
     description:
-      'Developed user interfaces and web applications, collaborating with design and backend teams to deliver high-quality digital products.',
+      'Developed user interfaces and dashboards, collaborating with design and backend teams to deliver high-quality digital products.',
     icon: Briefcase,
+    logo: '/logos/warp.png',
   },
   {
     title: 'Frontend Developer Intern',
@@ -56,6 +62,7 @@ export const experience: ExperienceItem[] = [
     description:
       'Started my professional journey as a frontend development intern, learning industry practices and contributing to real-world projects.',
     icon: Briefcase,
+    logo: '/logos/notive.png',
   },
   {
     title: 'Bachelor of Creative Media & Game Technologies',
@@ -64,6 +71,7 @@ export const experience: ExperienceItem[] = [
     description:
       'Pursued a degree in Creative Media & Game Technologies with emphasis on frontend development and design.',
     icon: GraduationCap,
+    logo: '/logos/hr.png',
   },
   {
     title: 'MBO 4 - Software Engineer',
@@ -72,5 +80,6 @@ export const experience: ExperienceItem[] = [
     description:
       'Gained valuable experience in both frontend and backend development, with a strong preference for frontend work due to the immediate visual feedback and creative possibilities.',
     icon: GraduationCap,
+    logo: '/logos/rocmondriaan.png',
   },
 ]
