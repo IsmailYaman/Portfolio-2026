@@ -8,10 +8,9 @@ import type { Project } from '@/data/projects'
 
 interface ProjectCardProps {
   project: Project
-  index: number
 }
 
-export function ProjectCard({ project, index }: ProjectCardProps) {
+export function ProjectCard({ project }: ProjectCardProps) {
   const cardRef = useRef(null)
   const isInView = useInView(cardRef, { once: true, margin: '-50px' })
 
