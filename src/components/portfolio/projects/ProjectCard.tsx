@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useInView } from 'motion/react'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { Link } from '@tanstack/react-router'
 import { ArrowRight } from 'lucide-react'
 import type { Project } from '@/data/projects'
@@ -12,7 +12,6 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
-  const [isHovered, setIsHovered] = useState(false)
   const cardRef = useRef(null)
   const isInView = useInView(cardRef, { once: true, margin: '-50px' })
 
@@ -20,42 +19,23 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
     <Link to="/projects/$slug" params={{ slug: project.slug }}>
       <motion.article
         ref={cardRef}
-        className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-shadow duration-500 cursor-pointer"
-        initial={{ opacity: 0, y: 60 }}
+        className="group bg-white rounded-2xl overflow-hidden shadow-sm cursor-pointer transition-all duration-150 hover:shadow-xl hover:-translate-y-1"
+        initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{
-          duration: 0.6,
-          delay: 0.1 * index,
-          ease: [0.25, 0.46, 0.45, 0.94],
-        }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        whileHover={{ y: -8 }}
+        transition={{ duration: 0.3 }}
       >
         {/* Image container */}
         <div className="relative aspect-[4/3] overflow-hidden">
-          <motion.img
+          <img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover"
-            animate={{ scale: isHovered ? 1.1 : 1 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="w-full h-full object-cover transition-transform duration-150 group-hover:scale-105"
           />
           {/* Overlay on hover */}
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: isHovered ? 1 : 0 }}
-            transition={{ duration: 0.4 }}
-          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
 
           {/* View project indicator */}
-          <motion.div
-            className="absolute bottom-4 right-4 flex items-center gap-2 px-4 py-2 bg-white rounded-full"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 20 }}
-            transition={{ duration: 0.3, delay: 0.1 }}
-          >
+          <div className="absolute bottom-4 right-4 flex items-center gap-2 px-4 py-2 bg-white rounded-full opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-150">
             <span
               className="text-sm font-medium text-[#1a1a1a]"
               style={{ fontFamily: "'DM Sans', sans-serif" }}
@@ -63,22 +43,19 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               View Project
             </span>
             <ArrowRight className="w-4 h-4 text-[#c45d3a]" />
-          </motion.div>
+          </div>
 
           {/* Color accent bar */}
-          <motion.div
-            className="absolute top-0 left-0 w-full h-1"
-            style={{ backgroundColor: project.color, transformOrigin: 'left' }}
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: isHovered ? 1 : 0 }}
-            transition={{ duration: 0.4 }}
+          <div
+            className="absolute top-0 left-0 w-full h-1 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-150"
+            style={{ backgroundColor: project.color }}
           />
         </div>
 
         {/* Content */}
         <div className="p-6">
           <h3
-            className="font-serif text-xl font-medium text-[#1a1a1a] mb-2 group-hover:text-[#c45d3a] transition-colors duration-300"
+            className="font-serif text-xl font-medium text-[#1a1a1a] mb-2 group-hover:text-[#c45d3a] transition-colors duration-150"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
             {project.title}
@@ -92,17 +69,14 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
           {/* Tags */}
           <div className="flex flex-wrap gap-2">
-            {project.tags.map((tag, tagIndex) => (
-              <motion.span
+            {project.tags.map((tag) => (
+              <span
                 key={tag}
                 className="px-3 py-1 bg-[#f5f3f0] text-[#5a5a5a] text-xs rounded-full"
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.3, delay: 0.2 + tagIndex * 0.05 }}
               >
                 {tag}
-              </motion.span>
+              </span>
             ))}
           </div>
         </div>

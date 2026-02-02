@@ -18,30 +18,14 @@ export function TimelineItem({ item, index, isInView }: TimelineItemProps) {
       className={`relative flex items-start gap-8 ${
         isEven ? 'md:flex-row' : 'md:flex-row-reverse'
       }`}
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{
-        duration: 0.6,
-        delay: 0.4 + index * 0.15,
-      }}
+      transition={{ duration: 0.3 }}
     >
       {/* Icon circle */}
       <div className="absolute left-8 md:left-1/2 -translate-x-1/2 z-10">
         <motion.div
-          className="w-16 h-16 bg-white rounded-full border-2 border-[#e8e4df] flex items-center justify-center shadow-lg"
-          initial={{ scale: 0}}
-          animate={isInView ? { scale: 1 } : {}}
-          transition={{
-            duration: 0.6,
-            stiffness: 200,
-            damping: 15,
-          }}
-          whileHover={{
-            scale: 1.15,
-            borderColor: '#c45d3a',
-            boxShadow: '0 10px 30px rgba(196, 93, 58, 0.2)',
-            transition: { duration: 0.4 },
-          }}
+          className="w-16 h-16 bg-white rounded-full border-2 border-[#e8e4df] flex items-center justify-center shadow-lg transition-all duration-150 hover:scale-110 hover:border-[#c45d3a] hover:shadow-xl"
         >
           <Icon className="w-6 h-6 text-[#c45d3a]" />
         </motion.div>
@@ -53,14 +37,7 @@ export function TimelineItem({ item, index, isInView }: TimelineItemProps) {
           isEven ? 'md:pr-8' : 'md:pl-8'
         }`}
       >
-        <motion.div
-          className="bg-white p-6 rounded-xl shadow-md hover:shadow-2xl transition-all duration-500 border border-[#e8e4df]/50 hover:border-[#c45d3a]/30"
-          whileHover={{
-            y: -8,
-            scale: 1.02,
-          }}
-          transition={{ duration: 0.3}}
-        >
+        <div className="bg-white p-6 rounded-xl shadow-md border border-[#e8e4df]/50 transition-all duration-150 hover:shadow-xl hover:-translate-y-1 hover:border-[#c45d3a]/30">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-12 h-12 rounded-lg bg-[#f5f3f0] p-2 flex-shrink-0">
               <img
@@ -76,18 +53,12 @@ export function TimelineItem({ item, index, isInView }: TimelineItemProps) {
               >
                 {item.institution}
               </p>
-              <motion.span
+              <span
                 className="text-[#c45d3a] text-xs"
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : {}}
-                transition={{
-                  duration: 0.4,
-                  delay: 0.6 + index * 0.15,
-                }}
               >
                 {item.date}
-              </motion.span>
+              </span>
             </div>
           </div>
           <h3
@@ -102,7 +73,7 @@ export function TimelineItem({ item, index, isInView }: TimelineItemProps) {
           >
             {item.description}
           </p>
-        </motion.div>
+        </div>
       </div>
 
       {/* Spacer for alternating layout */}

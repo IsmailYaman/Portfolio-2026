@@ -24,7 +24,7 @@ export const experience: ExperienceItem[] = [
     institution: 'Ventaro',
     date: 'May 2024 - Present',
     description:
-      'Ventaro, a Notive company where the focus lies on smalle scale projects.Working on Framer and Shopify project, and supporting existing clients with questions.',
+      'Ventaro, a Notive company where the focus lies on smalle scale projects. Working on Framer and Shopify project, and supporting existing clients with questions.',
     icon: Briefcase,
     logo: '/logos/ventaro.png',
   },
