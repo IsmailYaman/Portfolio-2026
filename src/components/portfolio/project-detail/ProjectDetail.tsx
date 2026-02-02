@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef, useEffect } from 'react'
-import { useScroll, useTransform } from 'motion/react'
+import { motion, useScroll, useTransform } from 'motion/react'
 import type { Project } from '@/data/projects'
 import { ProjectHero } from './ProjectHero'
 import { ImageGallery } from './ImageGallery'
@@ -17,6 +17,11 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end start'],
+  })
+  const galleryMaxWidth = useTransform(scrollYProgress, (latest) => {
+    const t = Math.min(latest / 0.28, 1)
+    const eased = 1 - Math.pow(1 - t, 3) // ease-out cubic: dampens as it approaches full width
+    return 1152 + eased * (1600 - 1152)
   })
 
   // Scroll to top on mount
@@ -35,14 +40,17 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
         headerOpacity={headerOpacity}
       />
 
-      {/* Gallery Section */}
+      {/* Gallery Section - width expands as you scroll */}
       <section className="pb-20 md:pb-32">
-        <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-20">
+        <motion.div
+          className="mx-auto px-6 md:px-12 lg:px-20"
+          style={{ maxWidth: galleryMaxWidth }}
+        >
           <ImageGallery
             images={project.gallery || [project.image]}
             title={project.title}
           />
-        </div>
+        </motion.div>
       </section>
 
       <ProjectContent project={project} />
