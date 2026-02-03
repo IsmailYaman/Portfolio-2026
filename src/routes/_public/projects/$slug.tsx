@@ -1,6 +1,8 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
 import { getProjectBySlug } from '@/data/projects'
-import { ProjectDetail, Navigation, Footer } from '@/components/portfolio'
+import { ProjectDetail } from '@/components/portfolio/project-detail'
+import { Navigation } from '@/components/portfolio/navigation'
+import { Footer } from '@/components/portfolio/footer'
 
 export const Route = createFileRoute('/_public/projects/$slug')({
   loader: async ({ params }) => {
