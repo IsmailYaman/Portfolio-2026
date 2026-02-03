@@ -10,7 +10,7 @@ interface ProjectContentProps {
 export function ProjectContent({ project }: ProjectContentProps) {
   return (
     <section className="pb-20 md:pb-32">
-      <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-20">
+      <div className="mx-auto max-w-6xl px-6 md:px-12 lg:px-20">
         <div className="grid lg:grid-cols-3 gap-12 lg:gap-20">
           {/* Main content */}
           <motion.div
@@ -20,16 +20,10 @@ export function ProjectContent({ project }: ProjectContentProps) {
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.6 }}
           >
-            <h2
-              className="font-serif text-2xl md:text-3xl font-medium text-[#1a1a1a] mb-6"
-              style={{ fontFamily: "'Playfair Display', serif" }}
-            >
+            <h2 className="font-playfair text-2xl md:text-3xl font-medium text-portfolio-text mb-6">
               About the <span className="italic">Project</span>
             </h2>
-            <div
-              className="text-[#5a5a5a] text-base md:text-lg leading-relaxed space-y-4"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
-            >
+            <div className="font-sans text-portfolio-text-muted text-base md:text-lg leading-relaxed space-y-4">
               {project.fullDescription.split('\n\n').map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
@@ -46,18 +40,14 @@ export function ProjectContent({ project }: ProjectContentProps) {
           >
             {/* Technologies */}
             <div className="bg-white rounded-2xl p-6 shadow-sm">
-              <h3
-                className="font-serif text-lg font-medium text-[#1a1a1a] mb-4"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
+              <h3 className="font-playfair text-lg font-medium text-portfolio-text mb-4">
                 Technologies
               </h3>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1.5 bg-[#f5f3f0] text-[#5a5a5a] text-sm rounded-full"
-                    style={{ fontFamily: "'DM Sans', sans-serif" }}
+                    className="font-sans px-3 py-1.5 bg-portfolio-bg text-portfolio-text-muted text-sm rounded-full"
                   >
                     {tag}
                   </span>
@@ -67,18 +57,14 @@ export function ProjectContent({ project }: ProjectContentProps) {
 
             {/* Key Highlights */}
             <div className="bg-white rounded-2xl p-6 shadow-sm">
-              <h3
-                className="font-serif text-lg font-medium text-[#1a1a1a] mb-4"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
+              <h3 className="font-playfair text-lg font-medium text-portfolio-text mb-4">
                 Key Highlights
               </h3>
               <ul className="space-y-3">
                 {project.highlights.map((highlight, index) => (
                   <li
                     key={index}
-                    className="flex items-start gap-3 text-[#5a5a5a] text-sm"
-                    style={{ fontFamily: "'DM Sans', sans-serif" }}
+                    className="font-sans flex items-start gap-3 text-portfolio-text-muted text-sm"
                   >
                     <span
                       className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"

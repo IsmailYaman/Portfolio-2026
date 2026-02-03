@@ -3,7 +3,7 @@
 import { useInView } from 'motion/react'
 import { useRef } from 'react'
 import { projects } from '@/data/projects'
-import { SectionHeader } from '../shared'
+import { SectionHeader, Container } from '../shared'
 import { ProjectCard } from './ProjectCard'
 
 export function Projects() {
@@ -11,8 +11,8 @@ export function Projects() {
   const isInView = useInView(ref, { once: true, margin: '-50px' })
 
   return (
-    <section id="projects" className="py-32 md:py-40 bg-[#f5f3f0]" ref={ref}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+    <section id="projects" className="py-32 md:py-40 bg-portfolio-bg" ref={ref}>
+      <Container>
         {/* Section header */}
         <div className="mb-20">
           <SectionHeader
@@ -31,7 +31,7 @@ export function Projects() {
             <ProjectCard key={project.slug} project={project} index={index} />
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   )
 }

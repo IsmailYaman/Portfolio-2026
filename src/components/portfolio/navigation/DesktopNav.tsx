@@ -48,12 +48,11 @@ export function DesktopNav({
           <motion.button
             key={link.name}
             onClick={() => onNavClick(link.href)}
-            className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 cursor-pointer ${
+            className={`font-sans relative px-4 py-2 text-sm font-medium transition-colors duration-300 cursor-pointer ${
               isActive
-                ? 'text-[#c45d3a]'
-                : 'text-[#5a5a5a] hover:text-[#c45d3a]'
+                ? 'text-portfolio-accent'
+                : 'text-portfolio-text-muted hover:text-portfolio-accent'
             }`}
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 + index * 0.05 }}
@@ -62,7 +61,7 @@ export function DesktopNav({
             {link.name}
             {isActive && (
               <motion.span
-                className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#c45d3a] rounded-full"
+                className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-portfolio-accent rounded-full"
                 layoutId="activeIndicator"
                 transition={{
                   type: 'spring',
@@ -78,8 +77,7 @@ export function DesktopNav({
       {/* Hire Me button */}
       <motion.button
         onClick={() => onNavClick('#contact')}
-        className="ml-4 px-6 py-2.5 bg-[#1a1a1a] text-white text-sm font-medium rounded-full shadow-lg shadow-black/10 cursor-pointer"
-        style={{ fontFamily: "'DM Sans', sans-serif" }}
+        className="font-sans ml-4 px-6 py-2.5 bg-portfolio-text text-white text-sm font-medium rounded-full shadow-lg shadow-black/10 cursor-pointer"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4, delay: 0.4 }}

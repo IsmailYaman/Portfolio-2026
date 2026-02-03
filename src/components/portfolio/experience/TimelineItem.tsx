@@ -24,10 +24,8 @@ export function TimelineItem({ item, index, isInView }: TimelineItemProps) {
     >
       {/* Icon circle */}
       <div className="absolute left-8 md:left-1/2 -translate-x-1/2 z-10">
-        <motion.div
-          className="w-16 h-16 bg-white rounded-full border-2 border-[#e8e4df] flex items-center justify-center shadow-lg transition-all duration-150 hover:scale-110 hover:border-[#c45d3a] hover:shadow-xl"
-        >
-          <Icon className="w-6 h-6 text-[#c45d3a]" />
+        <motion.div className="w-16 h-16 bg-white rounded-full border-2 border-portfolio-border flex items-center justify-center shadow-lg transition-all duration-150 hover:scale-110 hover:border-portfolio-accent hover:shadow-xl">
+          <Icon className="w-6 h-6 text-portfolio-accent" />
         </motion.div>
       </div>
 
@@ -37,9 +35,9 @@ export function TimelineItem({ item, index, isInView }: TimelineItemProps) {
           isEven ? 'md:pr-8' : 'md:pl-8'
         }`}
       >
-        <div className="bg-white p-6 rounded-xl shadow-md border border-[#e8e4df]/50 transition-all duration-150 hover:shadow-xl hover:-translate-y-1 hover:border-[#c45d3a]/30">
+        <div className="bg-white p-6 rounded-xl shadow-md border border-portfolio-border/50 transition-all duration-150 hover:shadow-xl hover:-translate-y-1 hover:border-portfolio-accent/30">
           <div className="flex items-center gap-4 mb-4">
-            <div className="w-12 h-12 rounded-lg bg-[#f5f3f0] p-2 flex-shrink-0">
+            <div className="w-12 h-12 rounded-lg bg-portfolio-bg p-2 flex-shrink-0">
               <img
                 src={item.logo}
                 alt={`${item.institution} logo`}
@@ -47,30 +45,18 @@ export function TimelineItem({ item, index, isInView }: TimelineItemProps) {
               />
             </div>
             <div>
-              <p
-                className="text-[#5a5a5a] text-sm font-medium"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-              >
+              <p className="font-sans text-portfolio-text-muted text-sm font-medium">
                 {item.institution}
               </p>
-              <span
-                className="text-[#c45d3a] text-xs"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-              >
+              <span className="font-sans text-portfolio-accent text-xs">
                 {item.date}
               </span>
             </div>
           </div>
-          <h3
-            className="font-serif text-lg font-medium text-[#1a1a1a]"
-            style={{ fontFamily: "'Playfair Display', serif" }}
-          >
+          <h3 className="font-playfair text-lg font-medium text-portfolio-text">
             {item.title}
           </h3>
-          <p
-            className="text-[#6a6a6a] text-sm mt-2 leading-relaxed"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
-          >
+          <p className="font-sans text-[#6a6a6a] text-sm mt-2 leading-relaxed">
             {item.description}
           </p>
         </div>

@@ -25,10 +25,7 @@ export function SkillCategory({
         ease: [0.25, 0.46, 0.45, 0.94],
       }}
     >
-      <h3
-        className="font-serif text-xl font-medium text-[#1a1a1a] mb-6 italic"
-        style={{ fontFamily: "'Playfair Display', serif" }}
-      >
+      <h3 className="font-playfair text-xl font-medium text-portfolio-text mb-6 italic">
         {category.title}
       </h3>
       <div className="space-y-5">

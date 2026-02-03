@@ -90,6 +90,20 @@ code {
 }
 
 @theme inline {
+  /* Font families */
+  --font-playfair: 'Playfair Display', serif;
+  --font-sans: 'DM Sans', sans-serif;
+
+  /* Portfolio color palette */
+  --color-portfolio-bg: #f5f3f0;
+  --color-portfolio-bg-alt: #faf9f7;
+  --color-portfolio-accent: #c45d3a;
+  --color-portfolio-accent-hover: #a34d30;
+  --color-portfolio-text: #1a1a1a;
+  --color-portfolio-text-muted: #5a5a5a;
+  --color-portfolio-border: #e8e4df;
+
+  /* Shadcn colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);

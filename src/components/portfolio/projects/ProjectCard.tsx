@@ -38,13 +38,10 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
           {/* View project indicator */}
           <div className="absolute bottom-4 right-4 flex items-center gap-2 px-4 py-2 bg-white rounded-full opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out">
-            <span
-              className="text-sm font-medium text-[#1a1a1a]"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
-            >
+            <span className="font-sans text-sm font-medium text-portfolio-text">
               View Project
             </span>
-            <ArrowRight className="w-4 h-4 text-[#c45d3a]" />
+            <ArrowRight className="w-4 h-4 text-portfolio-accent" />
           </div>
 
           {/* Color accent bar */}
@@ -56,16 +53,10 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
         {/* Content */}
         <div className="p-6">
-          <h3
-            className="font-serif text-xl font-medium text-[#1a1a1a] mb-2 group-hover:text-[#c45d3a] transition-colors duration-300 ease-out"
-            style={{ fontFamily: "'Playfair Display', serif" }}
-          >
+          <h3 className="font-playfair text-xl font-medium text-portfolio-text mb-2 group-hover:text-portfolio-accent transition-colors duration-300 ease-out">
             {project.title}
           </h3>
-          <p
-            className="text-[#5a5a5a] text-sm leading-relaxed mb-4"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
-          >
+          <p className="font-sans text-portfolio-text-muted text-sm leading-relaxed mb-4">
             {project.description}
           </p>
 
@@ -74,8 +65,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1 bg-[#f5f3f0] text-[#5a5a5a] text-xs rounded-full"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
+                className="font-sans px-3 py-1 bg-portfolio-bg text-portfolio-text-muted text-xs rounded-full"
               >
                 {tag}
               </span>

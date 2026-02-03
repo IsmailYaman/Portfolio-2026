@@ -17,15 +17,11 @@ export function SkillBar({ skill, isInView, delay }: SkillBarProps) {
       transition={{ duration: 0.5, delay }}
     >
       <div className="flex justify-between mb-2">
-        <span
-          className="text-[#3a3a3a] text-sm font-medium"
-          style={{ fontFamily: "'DM Sans', sans-serif" }}
-        >
+        <span className="font-sans text-[#3a3a3a] text-sm font-medium">
           {skill.name}
         </span>
         <motion.span
-          className="text-[#5a5a5a] text-sm"
-          style={{ fontFamily: "'DM Sans', sans-serif" }}
+          className="font-sans text-portfolio-text-muted text-sm"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.4, delay: delay + 0.3 }}
@@ -33,9 +29,9 @@ export function SkillBar({ skill, isInView, delay }: SkillBarProps) {
           {skill.level}%
         </motion.span>
       </div>
-      <div className="h-1.5 bg-[#e8e4df] rounded-full overflow-hidden">
+      <div className="h-1.5 bg-portfolio-border rounded-full overflow-hidden">
         <motion.div
-          className="h-full bg-gradient-to-r from-[#c45d3a] to-[#d97a5a] rounded-full relative"
+          className="h-full bg-gradient-to-r from-portfolio-accent to-[#d97a5a] rounded-full relative"
           initial={{ width: 0 }}
           animate={isInView ? { width: `${skill.level}%` } : {}}
           transition={{

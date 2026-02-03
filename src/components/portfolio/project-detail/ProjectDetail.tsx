@@ -8,6 +8,13 @@ import { ImageGallery } from './ImageGallery'
 import { ProjectContent } from './ProjectContent'
 import { ProjectNav } from './ProjectNav'
 
+/** Scroll progress threshold at which gallery reaches full width (28% of scroll) */
+const GALLERY_EXPAND_THRESHOLD = 0.28
+/** Initial gallery width in pixels (matches container max-width) */
+const GALLERY_MIN_WIDTH = 1152
+/** Maximum gallery width in pixels (full bleed width) */
+const GALLERY_MAX_WIDTH = 1600
+
 interface ProjectDetailProps {
   project: Project
 }
@@ -18,10 +25,12 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
     target: containerRef,
     offset: ['start start', 'end start'],
   })
+
+  // Gallery width expands from container width to full bleed as user scrolls
   const galleryMaxWidth = useTransform(scrollYProgress, (latest) => {
-    const t = Math.min(latest / 0.28, 1)
-    const eased = 1 - Math.pow(1 - t, 3) // ease-out cubic: dampens as it approaches full width
-    return 1152 + eased * (1600 - 1152)
+    const t = Math.min(latest / GALLERY_EXPAND_THRESHOLD, 1)
+    const eased = 1 - Math.pow(1 - t, 3) // ease-out cubic
+    return GALLERY_MIN_WIDTH + eased * (GALLERY_MAX_WIDTH - GALLERY_MIN_WIDTH)
   })
 
   // Scroll to top on mount

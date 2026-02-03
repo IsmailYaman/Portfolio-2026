@@ -65,7 +65,7 @@ export function Navigation() {
           WebkitBackdropFilter: isScrolled ? 'blur(12px)' : 'none',
         }}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+        <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-20">
           <nav className="flex items-center justify-between h-20">
             <NavLogo isHomePage={isHomePage} />
 
@@ -91,7 +91,7 @@ export function Navigation() {
         {/* Animated border bottom */}
         {isScrolled && (
           <motion.div
-            className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c45d3a]/20 to-transparent"
+            className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-portfolio-accent/20 to-transparent"
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.6 }}

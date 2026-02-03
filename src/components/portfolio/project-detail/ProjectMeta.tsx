@@ -18,57 +18,27 @@ export function ProjectMeta({ year, duration, role }: ProjectMetaProps) {
       transition={{ duration: 0.6, delay: 0.3 }}
     >
       <div className="bg-white rounded-2xl p-6 shadow-sm">
-        <div className="flex items-center gap-3 text-[#5a5a5a] mb-2">
+        <div className="flex items-center gap-3 text-portfolio-text-muted mb-2">
           <Calendar className="w-4 h-4" />
-          <span
-            className="text-xs uppercase tracking-wider"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
-          >
-            Year
-          </span>
+          <span className="font-sans text-xs uppercase tracking-wider">Year</span>
         </div>
-        <p
-          className="text-[#1a1a1a] font-medium text-lg"
-          style={{ fontFamily: "'DM Sans', sans-serif" }}
-        >
-          {year}
-        </p>
+        <p className="font-sans text-portfolio-text font-medium text-lg">{year}</p>
       </div>
 
       <div className="bg-white rounded-2xl p-6 shadow-sm">
-        <div className="flex items-center gap-3 text-[#5a5a5a] mb-2">
+        <div className="flex items-center gap-3 text-portfolio-text-muted mb-2">
           <Clock className="w-4 h-4" />
-          <span
-            className="text-xs uppercase tracking-wider"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
-          >
-            Duration
-          </span>
+          <span className="font-sans text-xs uppercase tracking-wider">Duration</span>
         </div>
-        <p
-          className="text-[#1a1a1a] font-medium text-lg"
-          style={{ fontFamily: "'DM Sans', sans-serif" }}
-        >
-          {duration}
-        </p>
+        <p className="font-sans text-portfolio-text font-medium text-lg">{duration}</p>
       </div>
 
       <div className="col-span-2 bg-white rounded-2xl p-6 shadow-sm">
-        <div className="flex items-center gap-3 text-[#5a5a5a] mb-2">
+        <div className="flex items-center gap-3 text-portfolio-text-muted mb-2">
           <User className="w-4 h-4" />
-          <span
-            className="text-xs uppercase tracking-wider"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
-          >
-            Role
-          </span>
+          <span className="font-sans text-xs uppercase tracking-wider">Role</span>
         </div>
-        <p
-          className="text-[#1a1a1a] font-medium text-lg"
-          style={{ fontFamily: "'DM Sans', sans-serif" }}
-        >
-          {role}
-        </p>
+        <p className="font-sans text-portfolio-text font-medium text-lg">{role}</p>
       </div>
     </motion.div>
   )

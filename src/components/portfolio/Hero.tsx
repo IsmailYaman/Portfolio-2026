@@ -2,7 +2,7 @@
 
 import { motion, useTransform } from 'motion/react'
 import { ArrowDown } from 'lucide-react'
-import { useMouseParallax } from './shared'
+import { useMouseParallax, Container } from './shared'
 
 export function Hero() {
   const { mouseX, mouseY } = useMouseParallax()
@@ -17,7 +17,7 @@ export function Hero() {
   }
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center bg-[#f5f3f0] overflow-hidden">
+    <section className="relative min-h-screen flex flex-col justify-center bg-portfolio-bg overflow-hidden">
       {/* Subtle background texture */}
       <div
         className="absolute inset-0 opacity-[0.03]"
@@ -28,25 +28,25 @@ export function Hero() {
 
       {/* Decorative elements with parallax */}
       <motion.div
-        className="absolute top-20 right-20 w-72 h-72 rounded-full bg-[#c45d3a]/10 blur-3xl pointer-events-none"
+        className="absolute top-20 right-20 w-72 h-72 rounded-full bg-portfolio-accent/10 blur-3xl pointer-events-none"
         style={{ x: blob1X, y: blob1Y }}
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.5, ease: 'easeOut' }}
       />
       <motion.div
-        className="absolute bottom-32 left-16 w-48 h-48 rounded-full bg-[#c45d3a]/5 blur-2xl pointer-events-none"
+        className="absolute bottom-32 left-16 w-48 h-48 rounded-full bg-portfolio-accent/5 blur-2xl pointer-events-none"
         style={{ x: blob2X, y: blob2Y }}
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.5, delay: 0.3, ease: 'easeOut' }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-20 w-full">
+      <Container className="relative z-10 w-full">
         <div className="max-w-4xl">
           {/* Eyebrow */}
           <motion.p
-            className="text-[#c45d3a] font-medium tracking-[0.2em] uppercase text-sm mb-6"
+            className="font-sans text-portfolio-accent font-medium tracking-[0.2em] uppercase text-sm mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -56,23 +56,21 @@ export function Hero() {
 
           {/* Main headline */}
           <motion.h1
-            className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium text-[#1a1a1a] leading-[0.95] tracking-[-0.02em] mb-8"
-            style={{ fontFamily: "'Playfair Display', serif" }}
+            className="font-playfair text-5xl md:text-7xl lg:text-8xl font-medium text-portfolio-text leading-[0.95] tracking-[-0.02em] mb-8"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             Crafting digital
             <br />
-            <span className="italic text-[#c45d3a]">experiences</span> that
+            <span className="italic text-portfolio-accent">experiences</span> that
             <br />
             resonate.
           </motion.h1>
 
           {/* Tagline */}
           <motion.p
-            className="text-[#5a5a5a] text-lg md:text-xl max-w-xl leading-relaxed mb-12"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
+            className="font-sans text-portfolio-text-muted text-lg md:text-xl max-w-xl leading-relaxed mb-12"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
@@ -84,8 +82,7 @@ export function Hero() {
           {/* CTA Button */}
           <motion.button
             onClick={scrollToProjects}
-            className="group inline-flex items-center gap-3 bg-[#1a1a1a] text-white px-8 py-4 rounded-full font-medium text-base hover:bg-[#c45d3a] transition-all duration-300 ease-out shadow-lg hover:shadow-xl"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
+            className="font-sans group inline-flex items-center gap-3 bg-portfolio-text text-white px-8 py-4 rounded-full font-medium text-base hover:bg-portfolio-accent transition-all duration-300 ease-out shadow-lg hover:shadow-xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
@@ -96,7 +93,7 @@ export function Hero() {
             <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-300" />
           </motion.button>
         </div>
-      </div>
+      </Container>
 
       {/* Scroll indicator */}
       <motion.div
@@ -106,11 +103,11 @@ export function Hero() {
         transition={{ duration: 0.6, delay: 1.2 }}
       >
         <motion.div
-          className="w-6 h-10 border-2 border-[#1a1a1a]/20 rounded-full flex justify-center pt-2"
+          className="w-6 h-10 border-2 border-portfolio-text/20 rounded-full flex justify-center pt-2"
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
         >
-          <div className="w-1.5 h-1.5 bg-[#c45d3a] rounded-full" />
+          <div className="w-1.5 h-1.5 bg-portfolio-accent rounded-full" />
         </motion.div>
       </motion.div>
     </section>

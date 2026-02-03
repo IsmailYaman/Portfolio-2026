@@ -10,23 +10,19 @@ interface TechBadgesProps {
 export function TechBadges({ isInView }: TechBadgesProps) {
   return (
     <motion.div
-      className="pt-12 border-t border-[#e8e4df]"
+      className="pt-12 border-t border-portfolio-border"
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: 0.5 }}
     >
-      <h3
-        className="font-serif text-xl font-medium text-[#1a1a1a] mb-8 text-center italic"
-        style={{ fontFamily: "'Playfair Display', serif" }}
-      >
+      <h3 className="font-playfair text-xl font-medium text-portfolio-text mb-8 text-center italic">
         Full Technology Stack
       </h3>
       <div className="flex flex-wrap justify-center gap-3">
         {technologies.map((tech, index) => (
           <motion.span
             key={tech}
-            className="px-4 py-2 bg-[#f5f3f0] text-[#3a3a3a] text-sm rounded-full hover:bg-[#c45d3a] hover:text-white transition-colors duration-300 cursor-default"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
+            className="font-sans px-4 py-2 bg-portfolio-bg text-[#3a3a3a] text-sm rounded-full hover:bg-portfolio-accent hover:text-white transition-colors duration-300 cursor-default"
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
             animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
             transition={{

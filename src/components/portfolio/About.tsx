@@ -2,7 +2,13 @@
 
 import { motion, useInView } from 'motion/react'
 import { useRef } from 'react'
-import { useMouseParallax } from './shared'
+import { useMouseParallax, Container } from './shared'
+
+const STATS = [
+  { id: 'projects', number: '40+', label: 'Projects Delivered' },
+  { id: 'clients', number: '15+', label: 'Happy Clients' },
+  { id: 'satisfaction', number: '98%', label: 'Satisfaction Rate' },
+]
 
 export function About() {
   const ref = useRef(null)
@@ -11,7 +17,7 @@ export function About() {
 
   return (
     <section id="about" className="py-32 md:py-40 bg-white" ref={ref}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+      <Container>
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Left column - Image */}
           <motion.div
@@ -33,12 +39,12 @@ export function About() {
                 className="w-full h-full object-cover"
               />
               {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a]/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-portfolio-text/20 to-transparent" />
             </motion.div>
 
             {/* Decorative floating elements */}
             <motion.div
-              className="absolute -top-6 -right-6 w-32 h-32 bg-[#c45d3a]/10 rounded-full blur-2xl"
+              className="absolute -top-6 -right-6 w-32 h-32 bg-portfolio-accent/10 rounded-full blur-2xl"
               animate={{
                 scale: [1, 1.2, 1],
                 opacity: [0.3, 0.5, 0.3],
@@ -50,7 +56,7 @@ export function About() {
               }}
             />
             <motion.div
-              className="absolute -bottom-8 -left-8 w-40 h-40 bg-[#c45d3a]/5 rounded-full blur-3xl"
+              className="absolute -bottom-8 -left-8 w-40 h-40 bg-portfolio-accent/5 rounded-full blur-3xl"
               animate={{
                 scale: [1, 1.3, 1],
                 opacity: [0.2, 0.4, 0.2],
@@ -65,23 +71,17 @@ export function About() {
 
             {/* Stats card overlay */}
             <motion.div
-              className="absolute -bottom-8 -right-8 bg-white p-6 rounded-xl shadow-xl border border-[#e8e4df]"
+              className="absolute -bottom-8 -right-8 bg-white p-6 rounded-xl shadow-xl border border-portfolio-border"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.6 }}
               whileHover={{ y: -4, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
             >
               <div className="text-center">
-                <div
-                  className="text-3xl font-medium text-[#c45d3a]"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
-                >
+                <div className="font-playfair text-3xl font-medium text-portfolio-accent">
                   6+
                 </div>
-                <div
-                  className="text-sm text-[#5a5a5a] mt-1"
-                  style={{ fontFamily: "'DM Sans', sans-serif" }}
-                >
+                <div className="font-sans text-sm text-portfolio-text-muted mt-1">
                   Years Experience
                 </div>
               </div>
@@ -95,13 +95,10 @@ export function About() {
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
             >
-              <span className="text-[#c45d3a] font-medium tracking-[0.2em] uppercase text-sm">
+              <span className="font-sans text-portfolio-accent font-medium tracking-[0.2em] uppercase text-sm">
                 About Me
               </span>
-              <h2
-                className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-[#1a1a1a] mt-4 leading-[1.1]"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
+              <h2 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-medium text-portfolio-text mt-4 leading-[1.1]">
                 Driven by
                 <br />
                 <span className="italic">curiosity</span>
@@ -109,8 +106,7 @@ export function About() {
             </motion.div>
 
             <motion.p
-              className="text-[#3a3a3a] text-lg md:text-xl leading-relaxed"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
+              className="font-sans text-[#3a3a3a] text-lg md:text-xl leading-relaxed"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -122,8 +118,7 @@ export function About() {
             </motion.p>
 
             <motion.p
-              className="text-[#5a5a5a] text-base md:text-lg leading-relaxed"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
+              className="font-sans text-portfolio-text-muted text-base md:text-lg leading-relaxed"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -137,21 +132,15 @@ export function About() {
 
             {/* Design Philosophy */}
             <motion.div
-              className="pt-8 border-t border-[#e8e4df]"
+              className="pt-8 border-t border-portfolio-border"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <h3
-                className="font-serif text-xl md:text-2xl text-[#1a1a1a] mb-4 italic"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
+              <h3 className="font-playfair text-xl md:text-2xl text-portfolio-text mb-4 italic">
                 Design Philosophy
               </h3>
-              <p
-                className="text-[#5a5a5a] text-base md:text-lg leading-relaxed"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-              >
+              <p className="font-sans text-portfolio-text-muted text-base md:text-lg leading-relaxed">
                 I believe great interfaces are invisible—they get out of the way
                 and let users accomplish their goals effortlessly. Every pixel,
                 every interaction, every line of code should serve a purpose. I
@@ -167,27 +156,17 @@ export function About() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              {[
-                { number: '40+', label: 'Projects Delivered' },
-                { number: '15+', label: 'Happy Clients' },
-                { number: '98%', label: 'Satisfaction Rate' },
-              ].map((stat, index) => (
+              {STATS.map((stat) => (
                 <motion.div
-                  key={index}
+                  key={stat.id}
                   className="text-center lg:text-left"
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div
-                    className="text-3xl md:text-4xl font-medium text-[#c45d3a]"
-                    style={{ fontFamily: "'Playfair Display', serif" }}
-                  >
+                  <div className="font-playfair text-3xl md:text-4xl font-medium text-portfolio-accent">
                     {stat.number}
                   </div>
-                  <div
-                    className="text-sm text-[#5a5a5a] mt-1"
-                    style={{ fontFamily: "'DM Sans', sans-serif" }}
-                  >
+                  <div className="font-sans text-sm text-portfolio-text-muted mt-1">
                     {stat.label}
                   </div>
                 </motion.div>
@@ -195,7 +174,7 @@ export function About() {
             </motion.div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   )
 }

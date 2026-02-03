@@ -2,7 +2,7 @@
 
 import { useInView } from 'motion/react'
 import { useRef } from 'react'
-import { SectionHeader } from '../shared'
+import { SectionHeader, Container } from '../shared'
 import { Timeline } from './Timeline'
 
 export function Experience() {
@@ -10,8 +10,8 @@ export function Experience() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="experience" className="py-32 md:py-40 bg-[#f5f3f0]" ref={ref}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+    <section id="experience" className="py-32 md:py-40 bg-portfolio-bg" ref={ref}>
+      <Container>
         {/* Section header */}
         <div className="mb-20">
           <SectionHeader
@@ -26,7 +26,7 @@ export function Experience() {
 
         {/* Timeline */}
         <Timeline isInView={isInView} />
-      </div>
+      </Container>
     </section>
   )
 }

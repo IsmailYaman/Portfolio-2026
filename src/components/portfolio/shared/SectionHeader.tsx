@@ -11,6 +11,10 @@ interface SectionHeaderProps {
   centered?: boolean
 }
 
+/**
+ * Reusable animated section header with eyebrow, title, and optional description.
+ * Animations trigger when the section comes into view.
+ */
 export function SectionHeader({
   eyebrow,
   title,
@@ -22,7 +26,7 @@ export function SectionHeader({
   return (
     <div className={centered ? 'text-center' : ''}>
       <motion.span
-        className="text-[#c45d3a] font-medium tracking-[0.2em] uppercase text-sm"
+        className="font-sans text-portfolio-accent font-medium tracking-[0.2em] uppercase text-sm"
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
@@ -30,8 +34,7 @@ export function SectionHeader({
         {eyebrow}
       </motion.span>
       <motion.h2
-        className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-[#1a1a1a] mt-4 leading-[1.1]"
-        style={{ fontFamily: "'Playfair Display', serif" }}
+        className="font-playfair text-4xl md:text-5xl lg:text-6xl font-medium text-portfolio-text mt-4 leading-[1.1]"
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6, delay: 0.1 }}
@@ -40,8 +43,7 @@ export function SectionHeader({
       </motion.h2>
       {description && (
         <motion.p
-          className={`text-[#5a5a5a] text-lg mt-6 ${centered ? 'max-w-2xl mx-auto' : ''}`}
-          style={{ fontFamily: "'DM Sans', sans-serif" }}
+          className={`font-sans text-portfolio-text-muted text-lg mt-6 ${centered ? 'max-w-2xl mx-auto' : ''}`}
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}

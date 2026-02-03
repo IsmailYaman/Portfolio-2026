@@ -18,34 +18,24 @@ export function ContactGrid({ isInView }: ContactGridProps) {
     >
       {/* Contact info */}
       <div className="space-y-6">
-        <h3
-          className="font-serif text-xl font-medium italic"
-          style={{ fontFamily: "'Playfair Display', serif" }}
-        >
-          Contact
-        </h3>
+        <h3 className="font-playfair text-xl font-medium italic">Contact</h3>
         <div className="space-y-4">
           <a
             href={`mailto:${contactInfo.email}`}
-            className="flex items-center gap-3 text-[#a0a0a0] hover:text-white transition-colors duration-300"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
+            className="font-sans flex items-center gap-3 text-[#a0a0a0] hover:text-white transition-colors duration-300"
           >
-            <Mail className="w-5 h-5 text-[#c45d3a]" />
+            <Mail className="w-5 h-5 text-portfolio-accent" />
             {contactInfo.email}
           </a>
           <a
             href={`tel:${contactInfo.phone.replace(/[^+\d]/g, '')}`}
-            className="flex items-center gap-3 text-[#a0a0a0] hover:text-white transition-colors duration-300"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
+            className="font-sans flex items-center gap-3 text-[#a0a0a0] hover:text-white transition-colors duration-300"
           >
-            <Phone className="w-5 h-5 text-[#c45d3a]" />
+            <Phone className="w-5 h-5 text-portfolio-accent" />
             {contactInfo.phone}
           </a>
-          <div
-            className="flex items-center gap-3 text-[#a0a0a0]"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
-          >
-            <MapPin className="w-5 h-5 text-[#c45d3a]" />
+          <div className="font-sans flex items-center gap-3 text-[#a0a0a0]">
+            <MapPin className="w-5 h-5 text-portfolio-accent" />
             {contactInfo.location}
           </div>
         </div>
@@ -53,12 +43,7 @@ export function ContactGrid({ isInView }: ContactGridProps) {
 
       {/* Social links */}
       <div className="space-y-6">
-        <h3
-          className="font-serif text-xl font-medium italic"
-          style={{ fontFamily: "'Playfair Display', serif" }}
-        >
-          Social
-        </h3>
+        <h3 className="font-playfair text-xl font-medium italic">Social</h3>
         <div className="flex flex-wrap gap-4">
           {socialLinks.map((social) => {
             const Icon = social.icon
@@ -66,7 +51,7 @@ export function ContactGrid({ isInView }: ContactGridProps) {
               <motion.a
                 key={social.name}
                 href={social.href}
-                className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center hover:bg-[#c45d3a] transition-colors duration-300"
+                className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center hover:bg-portfolio-accent transition-colors duration-300"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 aria-label={social.name}
@@ -80,19 +65,13 @@ export function ContactGrid({ isInView }: ContactGridProps) {
 
       {/* Quick links */}
       <div className="space-y-6">
-        <h3
-          className="font-serif text-xl font-medium italic"
-          style={{ fontFamily: "'Playfair Display', serif" }}
-        >
-          Quick Links
-        </h3>
+        <h3 className="font-playfair text-xl font-medium italic">Quick Links</h3>
         <nav className="space-y-3">
           {quickLinks.map((link) => (
             <a
               key={link}
               href={`#${link.toLowerCase()}`}
-              className="block text-[#a0a0a0] hover:text-white hover:translate-x-2 transition-all duration-300"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
+              className="font-sans block text-[#a0a0a0] hover:text-white hover:translate-x-2 transition-all duration-300"
             >
               {link}
             </a>

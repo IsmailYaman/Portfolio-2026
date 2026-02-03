@@ -28,10 +28,9 @@ export function ProjectsDropdown({
     <div className="relative" ref={dropdownRef}>
       <motion.button
         onClick={onToggle}
-        className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 flex items-center gap-1 cursor-pointer ${
-          isActive ? 'text-[#c45d3a]' : 'text-[#5a5a5a] hover:text-[#c45d3a]'
+        className={`font-sans relative px-4 py-2 text-sm font-medium transition-colors duration-300 flex items-center gap-1 cursor-pointer ${
+          isActive ? 'text-portfolio-accent' : 'text-portfolio-text-muted hover:text-portfolio-accent'
         }`}
-        style={{ fontFamily: "'DM Sans', sans-serif" }}
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.1 + index * 0.05 }}
@@ -46,7 +45,7 @@ export function ProjectsDropdown({
         </motion.span>
         {isActive && (
           <motion.span
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#c45d3a] rounded-full"
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-portfolio-accent rounded-full"
             layoutId="activeIndicator"
             transition={{
               type: 'spring',
@@ -60,7 +59,7 @@ export function ProjectsDropdown({
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-[#e8e4df] overflow-hidden z-10"
+            className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-portfolio-border overflow-hidden z-10"
             initial={{ opacity: 0, y: -10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
@@ -69,8 +68,7 @@ export function ProjectsDropdown({
             {/* All Projects link */}
             <button
               onClick={() => onNavClick('#projects')}
-              className="w-full px-4 py-3 cursor-pointer text-left text-sm font-medium text-[#1a1a1a] hover:bg-[#f5f3f0] hover:text-[#c45d3a] transition-colors duration-200 border-b border-[#e8e4df]"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
+              className="font-sans w-full px-4 py-3 cursor-pointer text-left text-sm font-medium text-portfolio-text hover:bg-portfolio-bg hover:text-portfolio-accent transition-colors duration-200 border-b border-portfolio-border"
             >
               All Projects
             </button>
@@ -83,16 +81,13 @@ export function ProjectsDropdown({
                   to="/projects/$slug"
                   params={{ slug: project.slug }}
                   onClick={onClose}
-                  className="flex items-center gap-3 px-4 py-2.5 hover:bg-[#f5f3f0] transition-colors duration-200 group"
+                  className="flex items-center gap-3 px-4 py-2.5 hover:bg-portfolio-bg transition-colors duration-200 group"
                 >
                   <span
                     className="w-2 h-2 rounded-full flex-shrink-0"
                     style={{ backgroundColor: project.color }}
                   />
-                  <span
-                    className="text-sm text-[#5a5a5a] group-hover:text-[#c45d3a] transition-colors duration-200 truncate"
-                    style={{ fontFamily: "'DM Sans', sans-serif" }}
-                  >
+                  <span className="font-sans text-sm text-portfolio-text-muted group-hover:text-portfolio-accent transition-colors duration-200 truncate">
                     {project.title}
                   </span>
                 </Link>

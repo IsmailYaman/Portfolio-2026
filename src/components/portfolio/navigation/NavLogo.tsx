@@ -19,13 +19,12 @@ export function NavLogo({ isHomePage }: NavLogoProps) {
       }}
     >
       <motion.span
-        className="relative font-serif text-xl italic font-medium transition-colors duration-300 group text-[#1a1a1a]"
-        style={{ fontFamily: "'Playfair Display', serif" }}
+        className="font-playfair relative text-xl italic font-medium transition-colors duration-300 group text-portfolio-text"
         whileHover={{ scale: 1.02 }}
       >
-        Ismail<span className="text-[#c45d3a]"> • </span>Kayadelen
+        Ismail<span className="text-portfolio-accent"> • </span>Kayadelen
         <motion.span
-          className="absolute -bottom-1 left-0 h-0.5 bg-[#c45d3a]"
+          className="absolute -bottom-1 left-0 h-0.5 bg-portfolio-accent"
           initial={{ width: 0 }}
           whileHover={{ width: '100%' }}
           transition={{ duration: 0.3 }}

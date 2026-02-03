@@ -7,10 +7,9 @@ import { ArrowLeft } from 'lucide-react'
 export function ProjectNav() {
   return (
     <section className="py-20 md:py-32 bg-white">
-      <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-20 text-center">
+      <div className="mx-auto max-w-6xl px-6 md:px-12 lg:px-20 text-center">
         <motion.p
-          className="text-[#5a5a5a] text-sm uppercase tracking-[0.2em] mb-4"
-          style={{ fontFamily: "'DM Sans', sans-serif" }}
+          className="font-sans text-portfolio-text-muted text-sm uppercase tracking-[0.2em] mb-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -19,8 +18,7 @@ export function ProjectNav() {
           Explore More
         </motion.p>
         <motion.h2
-          className="font-serif text-3xl md:text-4xl font-medium text-[#1a1a1a] mb-8"
-          style={{ fontFamily: "'Playfair Display', serif" }}
+          className="font-playfair text-3xl md:text-4xl font-medium text-portfolio-text mb-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -37,8 +35,7 @@ export function ProjectNav() {
           <Link
             to="/"
             hash="projects"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#1a1a1a] text-white rounded-full hover:bg-[#2a2a2a] transition-colors duration-300"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
+            className="font-sans inline-flex items-center gap-2 px-8 py-4 bg-portfolio-text text-white rounded-full hover:bg-[#2a2a2a] transition-colors duration-300"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Portfolio
