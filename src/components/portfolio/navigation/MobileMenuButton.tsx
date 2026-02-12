@@ -11,18 +11,18 @@ interface MobileMenuButtonProps {
 export function MobileMenuButton({ isOpen, onToggle }: MobileMenuButtonProps) {
   return (
     <motion.button
-      className="md:hidden w-10 h-10 flex items-center justify-center relative"
+      className="w-11 h-11 flex items-center justify-center rounded-full shrink-0"
       onClick={onToggle}
       whileTap={{ scale: 0.9 }}
     >
       <motion.div
         animate={isOpen ? { rotate: 180 } : { rotate: 0 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.2 }}
       >
         {isOpen ? (
-          <X className="w-6 h-6 text-[#1a1a1a]" />
+          <X className="w-5 h-5 text-portfolio-text" />
         ) : (
-          <Menu className="w-6 h-6 text-[#1a1a1a]" />
+          <Menu className="w-5 h-5 text-portfolio-text" />
         )}
       </motion.div>
     </motion.button>
