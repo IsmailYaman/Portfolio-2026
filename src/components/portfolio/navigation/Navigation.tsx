@@ -54,7 +54,7 @@ export function Navigation() {
         }}
       >
         <motion.nav
-          className="pointer-events-auto mt-5 mx-4 flex items-center gap-6 rounded-full px-4 py-2"
+          className="pointer-events-auto mt-5 mx-4 flex items-center gap-6 rounded-full pl-4 pr-2 py-2"
           initial={{ scale: 0.95, opacity: 0 }}
           animate={{
             scale: 1,

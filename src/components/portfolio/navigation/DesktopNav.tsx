@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'motion/react'
+import { motion, AnimatePresence } from 'motion/react'
 import { navLinks } from './nav-links'
 import { ProjectsDropdown } from './ProjectsDropdown'
 
@@ -58,17 +58,22 @@ export function DesktopNav({
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            {isActive && (
-              <motion.span
-                className="absolute inset-0 rounded-full bg-portfolio-accent/10"
-                layoutId="activePill"
-                transition={{
-                  type: 'spring',
-                  stiffness: 380,
-                  damping: 30,
-                }}
-              />
-            )}
+            <AnimatePresence>
+              {isActive && (
+                <motion.span
+                  className="absolute inset-0 rounded-full bg-portfolio-accent/10"
+                  layoutId="activePill"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{
+                    type: 'spring',
+                    stiffness: 380,
+                    damping: 30,
+                  }}
+                />
+              )}
+            </AnimatePresence>
             <span className="relative z-10">{link.name}</span>
           </motion.button>
         )

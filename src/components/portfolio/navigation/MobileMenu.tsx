@@ -53,17 +53,17 @@ export function MobileMenu({ isOpen, onNavClick, onClose }: MobileMenuProps) {
               <div key={link.name} className="flex flex-col items-center z-10">
                 <motion.button
                   onClick={() => setIsProjectsOpen(!isProjectsOpen)}
-                  className="font-playfair relative text-3xl font-medium text-portfolio-text hover:text-portfolio-accent transition-colors duration-300 flex items-center gap-2"
+                  className="font-playfair relative text-3xl font-medium text-portfolio-text hover:text-portfolio-accent transition-colors duration-300"
                   initial={{ opacity: 0, y: 20 }}
                   animate={
                     isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
                   }
                   transition={{ duration: 0.4, delay: index * 0.08 }}
-                  whileHover={{ scale: 1.05, x: 10 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   {link.name}
                   <motion.span
+                    className="absolute -right-7 top-1/2 -translate-y-1/2"
                     animate={{ rotate: isProjectsOpen ? 180 : 0 }}
                     transition={{ duration: 0.2 }}
                   >
@@ -116,7 +116,6 @@ export function MobileMenu({ isOpen, onNavClick, onClose }: MobileMenuProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.4, delay: index * 0.08 }}
-              whileHover={{ scale: 1.05, x: 10 }}
               whileTap={{ scale: 0.95 }}
             >
               {link.name}
@@ -131,10 +130,6 @@ export function MobileMenu({ isOpen, onNavClick, onClose }: MobileMenuProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.4, delay: 0.5 }}
-          whileHover={{
-            scale: 1.05,
-            backgroundColor: '#c45d3a',
-          }}
           whileTap={{ scale: 0.95 }}
         >
           Let's Talk

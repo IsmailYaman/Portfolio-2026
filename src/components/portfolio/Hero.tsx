@@ -17,7 +17,7 @@ export function Hero() {
   }
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center bg-portfolio-bg overflow-hidden">
+    <section className="relative min-h-svh flex flex-col justify-center bg-portfolio-bg overflow-hidden">
       {/* Subtle background texture */}
       <div
         className="absolute inset-0 opacity-[0.03]"
