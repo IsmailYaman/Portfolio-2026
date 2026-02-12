@@ -19,9 +19,7 @@ export function Navigation() {
   const isHomePage = location.pathname === '/'
   const isProjectPage = location.pathname.startsWith('/projects/')
 
-  const { isScrolled, isVisible, activeSection } = useNavigationScroll({
-    onHide: () => setIsProjectsDropdownOpen(false),
-  })
+  const { isScrolled, activeSection } = useNavigationScroll()
 
   useClickOutside(dropdownRef, () => setIsProjectsDropdownOpen(false))
 
@@ -44,59 +42,60 @@ export function Navigation() {
   return (
     <>
       <motion.header
-        className="fixed top-0 left-0 right-0 z-50"
-        initial={{ y: -100 }}
+        className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none"
+        initial={{ y: -100, opacity: 0 }}
         animate={{
-          y: isVisible ? 0 : -100,
-          backgroundColor: isScrolled
-            ? 'rgba(255, 255, 255, 0.8)'
-            : 'rgba(255, 255, 255, 0)',
-          boxShadow: isScrolled
-            ? '0 10px 15px -3px rgba(0, 0, 0, 0.05)'
-            : '0 0 0 0 rgba(0, 0, 0, 0)',
+          y: 0,
+          opacity: 1,
         }}
         transition={{
-          y: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] },
-          backgroundColor: { duration: 0.3, ease: 'easeInOut' },
-          boxShadow: { duration: 0.3, ease: 'easeInOut' },
-        }}
-        style={{
-          backdropFilter: isScrolled ? 'blur(12px)' : 'none',
-          WebkitBackdropFilter: isScrolled ? 'blur(12px)' : 'none',
+          y: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] },
+          opacity: { duration: 0.3 },
         }}
       >
-        <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-20">
-          <nav className="flex items-center justify-between h-20">
-            <NavLogo isHomePage={isHomePage} />
+        <motion.nav
+          className="pointer-events-auto mt-4 md:mt-5 mx-4 flex items-center gap-6 rounded-full px-3 py-1.5 md:px-4 md:py-2"
+          initial={{ scale: 0.95, opacity: 0 }}
+          animate={{
+            scale: 1,
+            opacity: 1,
+            backgroundColor: isScrolled
+              ? 'rgba(255, 255, 255, 0.85)'
+              : 'rgba(255, 255, 255, 0.6)',
+            boxShadow: isScrolled
+              ? '0 8px 32px rgba(0, 0, 0, 0.08), inset 0 0 0 1px rgba(0, 0, 0, 0.06)'
+              : '0 4px 16px rgba(0, 0, 0, 0.03), inset 0 0 0 1px rgba(0, 0, 0, 0.03)',
+          }}
+          transition={{
+            scale: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
+            opacity: { duration: 0.5 },
+            backgroundColor: { duration: 0.4, ease: 'easeInOut' },
+            boxShadow: { duration: 0.4, ease: 'easeInOut' },
+          }}
+          style={{
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+          }}
+        >
+          <NavLogo isHomePage={isHomePage} isScrolled={isScrolled} />
 
-            <DesktopNav
-              activeSection={activeSection}
-              isProjectPage={isProjectPage}
-              isProjectsDropdownOpen={isProjectsDropdownOpen}
-              onProjectsDropdownToggle={() =>
-                setIsProjectsDropdownOpen(!isProjectsDropdownOpen)
-              }
-              onProjectsDropdownClose={() => setIsProjectsDropdownOpen(false)}
-              onNavClick={handleNavClick}
-              dropdownRef={dropdownRef}
-            />
-
-            <MobileMenuButton
-              isOpen={isMobileMenuOpen}
-              onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            />
-          </nav>
-        </div>
-
-        {/* Animated border bottom */}
-        {isScrolled && (
-          <motion.div
-            className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-portfolio-accent/20 to-transparent"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.6 }}
+          <DesktopNav
+            activeSection={activeSection}
+            isProjectPage={isProjectPage}
+            isProjectsDropdownOpen={isProjectsDropdownOpen}
+            onProjectsDropdownToggle={() =>
+              setIsProjectsDropdownOpen(!isProjectsDropdownOpen)
+            }
+            onProjectsDropdownClose={() => setIsProjectsDropdownOpen(false)}
+            onNavClick={handleNavClick}
+            dropdownRef={dropdownRef}
           />
-        )}
+
+          <MobileMenuButton
+            isOpen={isMobileMenuOpen}
+            onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          />
+        </motion.nav>
       </motion.header>
 
       <MobileMenu

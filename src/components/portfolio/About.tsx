@@ -5,9 +5,9 @@ import { useRef } from 'react'
 import { useMouseParallax, Container } from './shared'
 
 const STATS = [
-  { id: 'projects', number: '40+', label: 'Projects Delivered' },
+  { id: 'projects', number: '4+', label: 'Years of Experience' },
   { id: 'clients', number: '15+', label: 'Happy Clients' },
-  { id: 'satisfaction', number: '98%', label: 'Satisfaction Rate' },
+  { id: 'goal', number: '∞', label: 'Curiosity & Continuous Learning' },
 ]
 
 export function About() {
@@ -70,7 +70,7 @@ export function About() {
             />
 
             {/* Stats card overlay */}
-            <motion.div
+            {/* <motion.div
               className="absolute -bottom-8 -right-8 bg-white p-6 rounded-xl shadow-xl border border-portfolio-border"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -85,7 +85,7 @@ export function About() {
                   Years Experience
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
 
           {/* Right column - Content */}
@@ -111,10 +111,12 @@ export function About() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              I'm a frontend developer with over 6 years of experience building
-              web applications that people genuinely enjoy using. My journey
-              started with a fascination for how design and code intersect—and
-              that curiosity still drives everything I create today.
+              I am passionate about building digital products that combine
+              strong functionality with refined visual design. I work across the
+              full frontend spectrum, from engineering scalable interfaces to
+              shaping user focused designs. I enjoy translating complex
+              requirements into intuitive, high quality experiences that perform
+              reliably in production environments.
             </motion.p>
 
             <motion.p
@@ -123,11 +125,11 @@ export function About() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              Based in San Francisco, I've collaborated with startups and
-              established companies alike, helping them translate complex ideas
-              into intuitive, accessible interfaces. When I'm not coding, you'll
-              find me exploring typography, experimenting with generative art,
-              or hiking the coastal trails.
+              Outside of development, I focus on discipline and continuous
+              improvement. I spend a lot of time in the gym, where bodybuilding
+              helps me maintain focus and consistency. I also enjoy working on
+              my car, which gives me space to think, solve problems hands on,
+              and recharge creatively.
             </motion.p>
 
             {/* Design Philosophy */}
@@ -138,14 +140,14 @@ export function About() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <h3 className="font-playfair text-xl md:text-2xl text-portfolio-text mb-4 italic">
-                Design Philosophy
+                What I Care About
               </h3>
               <p className="font-sans text-portfolio-text-muted text-base md:text-lg leading-relaxed">
-                I believe great interfaces are invisible—they get out of the way
-                and let users accomplish their goals effortlessly. Every pixel,
-                every interaction, every line of code should serve a purpose. I
-                strive for that sweet spot where aesthetics and usability become
-                indistinguishable.
+                I care about building software that lasts. That means writing
+                maintainable code, designing consistent systems, and creating
+                experiences users trust. I believe the best digital products
+                come from strong collaboration between design, engineering, and
+                product, supported by thoughtful technical decisions.
               </p>
             </motion.div>
 

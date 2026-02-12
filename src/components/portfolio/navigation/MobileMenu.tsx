@@ -137,7 +137,7 @@ export function MobileMenu({ isOpen, onNavClick, onClose }: MobileMenuProps) {
           }}
           whileTap={{ scale: 0.95 }}
         >
-          Hire Me
+          Let's Talk
         </motion.button>
       </div>
     </motion.div>
