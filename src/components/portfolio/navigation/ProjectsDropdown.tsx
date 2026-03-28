@@ -28,33 +28,13 @@ export function ProjectsDropdown({
     <div className="relative" ref={dropdownRef}>
       <motion.button
         onClick={onToggle}
-        className={`font-sans relative px-4 py-2 text-sm font-medium transition-colors duration-300 cursor-pointer rounded-full ${
-          isActive
-            ? 'text-portfolio-accent'
-            : 'text-portfolio-text-muted hover:text-portfolio-accent'
-        }`}
+        className="font-sans relative px-4 py-2 text-sm font-medium transition-colors duration-300 cursor-pointer rounded-full text-portfolio-text-muted hover:text-portfolio-accent"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.1 + index * 0.05 }}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        <AnimatePresence>
-          {isActive && (
-            <motion.span
-              className="absolute inset-0 rounded-full bg-portfolio-accent/10"
-              layoutId="activePill"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{
-                type: 'spring',
-                stiffness: 380,
-                damping: 30,
-              }}
-            />
-          )}
-        </AnimatePresence>
         <span className="relative z-10 flex items-center gap-1">
           Projects
           <motion.span
