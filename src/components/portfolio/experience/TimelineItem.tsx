@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'motion/react'
-import type { ExperienceItem } from './experience-data'
+import type { ExperienceItem } from '@/data/experience'
 
 interface TimelineItemProps {
   item: ExperienceItem

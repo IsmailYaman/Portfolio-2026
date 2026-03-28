@@ -2,7 +2,7 @@
 
 import { motion } from 'motion/react'
 import { SkillBar } from './SkillBar'
-import type { SkillCategory as SkillCategoryType } from './skills-data'
+import type { SkillCategory as SkillCategoryType } from '@/data/skills'
 
 interface SkillCategoryProps {
   category: SkillCategoryType

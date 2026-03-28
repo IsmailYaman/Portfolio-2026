@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'motion/react'
-import { technologies } from './skills-data'
+import { technologies } from '@/data/skills'
 
 interface TechBadgesProps {
   isInView: boolean

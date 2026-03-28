@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'motion/react'
-import type { Skill } from './skills-data'
+import type { Skill } from '@/data/skills'
 
 interface SkillBarProps {
   skill: Skill

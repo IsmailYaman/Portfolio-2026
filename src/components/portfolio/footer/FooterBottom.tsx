@@ -2,7 +2,7 @@
 
 import { motion } from 'motion/react'
 import { Container } from '../shared'
-import { contactInfo } from './footer-data'
+import { contactInfo } from '@/data/footer'
 
 interface FooterBottomProps {
   isInView: boolean

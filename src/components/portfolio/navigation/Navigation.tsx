@@ -17,9 +17,7 @@ export function Navigation() {
   const location = useLocation()
 
   const isHomePage = location.pathname === '/'
-  const isProjectPage = location.pathname.startsWith('/projects/')
-
-  const { isScrolled, activeSection } = useNavigationScroll()
+  const { isScrolled } = useNavigationScroll()
 
   useClickOutside(dropdownRef, () => setIsProjectsDropdownOpen(false))
 
@@ -80,8 +78,6 @@ export function Navigation() {
           <NavLogo isHomePage={isHomePage} isScrolled={isScrolled} />
 
           <DesktopNav
-            activeSection={activeSection}
-            isProjectPage={isProjectPage}
             isProjectsDropdownOpen={isProjectsDropdownOpen}
             onProjectsDropdownToggle={() =>
               setIsProjectsDropdownOpen(!isProjectsDropdownOpen)

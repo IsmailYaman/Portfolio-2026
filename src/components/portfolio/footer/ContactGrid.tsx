@@ -2,7 +2,7 @@
 
 import { motion } from 'motion/react'
 import { Mail, Phone, MapPin } from 'lucide-react'
-import { socialLinks, quickLinks, contactInfo } from './footer-data'
+import { socialLinks, quickLinks, contactInfo } from '@/data/footer'
 
 interface ContactGridProps {
   isInView: boolean

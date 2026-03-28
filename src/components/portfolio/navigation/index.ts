@@ -11,4 +11,4 @@ export { MobileMenu } from './MobileMenu'
 export { useNavigationScroll, useClickOutside } from './hooks'
 
 // Constants
-export { navLinks, type NavLink } from './nav-links'
+export { navLinks, type NavLink } from '@/data/nav-links'

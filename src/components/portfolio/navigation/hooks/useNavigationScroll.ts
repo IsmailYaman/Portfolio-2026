@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useScroll, useMotionValueEvent } from 'motion/react'
-import { navLinks } from '../nav-links'
+import { navLinks } from '@/data/nav-links'
 
 /** Scroll position threshold for showing compact nav style */
 const SCROLL_THRESHOLD = 50

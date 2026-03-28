@@ -2,7 +2,7 @@
 
 import { motion } from 'motion/react'
 import { ArrowUpRight } from 'lucide-react'
-import { contactInfo } from './footer-data'
+import { contactInfo } from '@/data/footer'
 
 interface FooterCTAProps {
   isInView: boolean

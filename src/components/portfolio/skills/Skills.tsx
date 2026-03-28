@@ -3,7 +3,7 @@
 import { motion, useInView } from 'motion/react'
 import { useRef } from 'react'
 import { Container } from '../shared'
-import { skillCategories } from './skills-data'
+import { skillCategories } from '@/data/skills'
 import { SkillCategory } from './SkillCategory'
 import { TechBadges } from './TechBadges'
 

@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react'
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
-import { navLinks } from './nav-links'
+import { navLinks } from '@/data/nav-links'
 import { projects } from '@/data/projects'
 
 interface MobileMenuProps {

@@ -7,7 +7,6 @@ import { projects } from '@/data/projects'
 
 interface ProjectsDropdownProps {
   isOpen: boolean
-  isActive: boolean
   index: number
   onToggle: () => void
   onNavClick: (href: string) => void
@@ -17,7 +16,6 @@ interface ProjectsDropdownProps {
 
 export function ProjectsDropdown({
   isOpen,
-  isActive,
   index,
   onToggle,
   onNavClick,

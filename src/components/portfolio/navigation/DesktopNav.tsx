@@ -1,12 +1,10 @@
 'use client'
 
 import { motion } from 'motion/react'
-import { navLinks } from './nav-links'
+import { navLinks } from '@/data/nav-links'
 import { ProjectsDropdown } from './ProjectsDropdown'
 
 interface DesktopNavProps {
-  activeSection: string
-  isProjectPage: boolean
   isProjectsDropdownOpen: boolean
   onProjectsDropdownToggle: () => void
   onProjectsDropdownClose: () => void
@@ -15,8 +13,6 @@ interface DesktopNavProps {
 }
 
 export function DesktopNav({
-  activeSection,
-  isProjectPage,
   isProjectsDropdownOpen,
   onProjectsDropdownToggle,
   onProjectsDropdownClose,
@@ -26,14 +22,11 @@ export function DesktopNav({
   return (
     <div className="hidden md:flex items-center gap-0.5">
       {navLinks.map((link, index) => {
-        const isActive = activeSection === link.href.substring(1)
-
         if (link.hasDropdown) {
           return (
             <ProjectsDropdown
               key={link.name}
               isOpen={isProjectsDropdownOpen}
-              isActive={isActive || isProjectPage}
               index={index}
               onToggle={onProjectsDropdownToggle}
               onNavClick={onNavClick}
