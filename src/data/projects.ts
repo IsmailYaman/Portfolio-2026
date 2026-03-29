@@ -17,6 +17,88 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: 'pure-fuel-solution',
+    title: 'Pure Fuel Solution',
+    description:
+      'A website for a 24/7 diesel fuel polishing service protecting critical infrastructure across South Florida.',
+    fullDescription: `Pure Fuel Solution is a professional fuel polishing and tank maintenance service operating 24/7 across South Florida. They specialise in keeping backup generators running for hospitals, data centres, and other critical infrastructure.
+    
+    The website was built to clearly communicate their services and four-step process, build trust with key statistics, and make it easy for potential clients to get in touch at any hour.`,
+    image: '/projects/purefuelsolution.png',
+    tags: ['Framer'],
+    color: '#d00003',
+    liveUrl: 'https://www.purefuelsolution.com/',
+    year: '2025',
+    role: 'Web Designer & Developer',
+    duration: '3 weeks',
+    highlights: [
+      'Designed a trust-focused layout highlighting a 500+ client track record',
+      'Clearly structured a four-step service process for a technical audience',
+      'Built a fully responsive site optimised for 24/7 emergency lead generation',
+    ],
+  },
+  {
+    slug: 'yamotion',
+    title: 'YAMOTION',
+    description:
+      'My freelance web development business, specializing in Framer websites and Shopify webshops with a focus on design, performance, and user experience.',
+    fullDescription: `YAMOTION is my freelance web development business, specializing in Framer websites and Shopify webshops with a focus on design, performance, and user experience. I create modern, interactive, and high-quality web solutions tailored to clients' needs.`,
+    image: '/projects/yamotion.png',
+    tags: ['Framer', 'React'],
+    color: '#111111',
+    liveUrl: 'https://yamotion.com/',
+    year: '2024',
+    role: 'Founder & Developer',
+    duration: 'Ongoing',
+    highlights: [
+      'Founded and built the full brand identity and website',
+      'Specialises in Framer websites and Shopify webshops',
+      'Focused on design quality, performance, and user experience',
+    ],
+  },
+  {
+    slug: 'global-power-services',
+    title: 'Global Power Services',
+    description:
+      'A website for a generator specialist showcasing their products, maintenance services, and commitment to reliable power solutions.',
+    fullDescription: `This client specialises in providing generators and expertise in maintenance and repair services. Their goal is to ensure reliable power solutions for every customer.
+
+This website was created to showcase their wide range of products and services, as well as their commitment to delivering in the generator industry. With a user-friendly design and detailed content, the platform ensures customers can easily find the right solutions for their power needs.`,
+    image: '/projects/global-pow.png',
+    tags: ['Framer', 'React'],
+    color: '#06beff',
+    liveUrl: 'https://global-pow.com/',
+    year: '2024',
+    role: 'Web Designer & Developer',
+    duration: '3 weeks',
+    highlights: [
+      'Designed a clear product and services showcase for a technical audience',
+      'Built with a user-friendly layout to help customers find power solutions quickly',
+      "Delivered a fully responsive site reflecting the client's industry expertise",
+    ],
+  },
+  {
+    slug: 'ajeethmuthu-portfolio',
+    title: 'Ajeeth Muthu — Portfolio',
+    description:
+      'A personal portfolio for a data professional based in Den Haag, showcasing expertise in data engineering, machine learning, and AI.',
+    fullDescription: `A modern portfolio website built for Ajeeth Muthu, a Data Steward based in Den Haag, Netherlands. The site presents his background in data engineering, machine learning, and AI in a clean, animated interface.
+
+The portfolio highlights his hard skills — Python, SQL, Power BI, Tableau — alongside his professional experience across data-focused roles. Personal touches throughout the site give it a human feel that goes beyond a standard CV.`,
+    image: '/projects/ajeeth.png',
+    tags: ['Next.js', 'React', 'Tailwind CSS'],
+    color: '#00a5f4',
+    liveUrl: 'https://ajeethmuthu.vercel.app/',
+    year: '2025',
+    role: 'Web Designer & Developer',
+    duration: '3 weeks',
+    highlights: [
+      'Designed and built a fully responsive portfolio with animated transitions',
+      'Structured content to showcase both technical skills and personality',
+      'Deployed on Vercel with Next.js for fast, reliable performance',
+    ],
+  },
+  {
     slug: 'cp-ar',
     title: 'CP-AR',
     description:
@@ -58,49 +140,6 @@ This was the second project with the game development minor. As an artist within
       'Contributed additional assets across the remaining two levels',
       'Published on Steam as part of the game development minor',
       'Collaborated in a multidisciplinary team using Scrum',
-    ],
-  },
-  {
-    slug: 'waar-bekken-ik',
-    title: 'Waar Bekken Ik?',
-    description:
-      'An interactive 3D pelvis visualisation for Erasmus University medical students, making complex anatomy accessible.',
-    fullDescription: `This was a school project where my team had to solve a problem that medical students at Erasmus University were facing. The pelvis is one of the few parts of the human body that is very difficult for students to understand only from books. We made a 3D visualisation that makes the pelvis clear to students by showing it from different perspectives.
-
-This was a long project that lasted six months. During that time, we worked with Scrum and Agile principles. The special thing about this project is that it is a long-term project — next year's CMGT students were intended to continue building on it.`,
-    image: '/projects/waarbekkenik.png',
-    tags: ['Unity', 'React'],
-    color: '#1a5276',
-    liveUrl: 'https://cmgt.hr.nl/projecten/waar-bekken-ik',
-    year: '2022',
-    role: 'Full Stack Developer',
-    duration: '6 months',
-    highlights: [
-      'Built a multi-perspective 3D pelvis viewer for medical education',
-      'Worked Agile with Scrum over a six-month development cycle',
-      'Designed as a long-term handoff project for future student cohorts',
-      'Collaborated directly with Erasmus University stakeholders',
-    ],
-  },
-  {
-    slug: 'ajeethmuthu-portfolio',
-    title: 'Ajeeth Muthu — Portfolio',
-    description:
-      'A personal portfolio for a data professional based in Den Haag, showcasing expertise in data engineering, machine learning, and AI.',
-    fullDescription: `A modern portfolio website built for Ajeeth Muthu, a Data Steward based in Den Haag, Netherlands. The site presents his background in data engineering, machine learning, and AI in a clean, animated interface.
-
-The portfolio highlights his hard skills — Python, SQL, Power BI, Tableau — alongside his professional experience across data-focused roles. Personal touches throughout the site give it a human feel that goes beyond a standard CV.`,
-    image: '/projects/ajeeth.png',
-    tags: ['Next.js', 'React', 'Tailwind CSS'],
-    color: '#2563eb',
-    liveUrl: 'https://ajeethmuthu.vercel.app/',
-    year: '2025',
-    role: 'Web Designer & Developer',
-    duration: '3 weeks',
-    highlights: [
-      'Designed and built a fully responsive portfolio with animated transitions',
-      'Structured content to showcase both technical skills and personality',
-      'Deployed on Vercel with Next.js for fast, reliable performance',
     ],
   },
 ]
