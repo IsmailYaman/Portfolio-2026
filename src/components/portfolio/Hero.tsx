@@ -51,7 +51,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Frontend Developer & Designer
+            Full Stack Engineer & Designer
           </motion.p>
 
           {/* Main headline */}
@@ -63,7 +63,10 @@ export function Hero() {
           >
             Crafting digital
             <br />
-            <span className="italic text-portfolio-accent">experiences</span> that
+            <span className="italic text-portfolio-accent">
+              experiences
+            </span>{' '}
+            that
             <br />
             resonate.
           </motion.h1>

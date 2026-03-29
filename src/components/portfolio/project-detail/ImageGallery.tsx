@@ -23,7 +23,7 @@ export function ImageGallery({ images, title }: ImageGalleryProps) {
   return (
     <div className="relative group">
       <motion.div
-        className="aspect-[16/10] overflow-hidden rounded-2xl bg-[#1a1a1a]"
+        className="aspect-[16/10] overflow-hidden rounded-2xl bg-white"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}

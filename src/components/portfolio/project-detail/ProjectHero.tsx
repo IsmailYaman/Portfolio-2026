@@ -12,7 +12,11 @@ interface ProjectHeroProps {
   headerOpacity: MotionValue<number>
 }
 
-export function ProjectHero({ project, headerY, headerOpacity }: ProjectHeroProps) {
+export function ProjectHero({
+  project,
+  headerY,
+  headerOpacity,
+}: ProjectHeroProps) {
   return (
     <motion.section
       className="relative pt-32 pb-20 md:pt-40 md:pb-32"
@@ -48,7 +52,10 @@ export function ProjectHero({ project, headerY, headerOpacity }: ProjectHeroProp
                 className="w-12 h-[2px] rounded-full"
                 style={{ backgroundColor: project.color }}
               />
-              <span className="font-sans text-portfolio-accent font-medium tracking-[0.2em] uppercase text-sm">
+              <span
+                className="font-sans font-medium tracking-[0.2em] uppercase text-sm"
+                style={{ color: project.color }}
+              >
                 Case Study
               </span>
             </motion.div>
@@ -83,7 +90,8 @@ export function ProjectHero({ project, headerY, headerOpacity }: ProjectHeroProp
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-sans inline-flex items-center gap-2 px-6 py-3 bg-portfolio-accent text-white rounded-full hover:bg-portfolio-accent-hover transition-colors duration-300"
+                  className="font-sans inline-flex items-center gap-2 px-6 py-3 text-white rounded-full transition-all duration-300 hover:brightness-90 active:brightness-90"
+                  style={{ backgroundColor: project.color }}
                 >
                   <ExternalLink className="w-4 h-4" />
                   View Live Site

@@ -27,13 +27,15 @@ export function ContactGrid({ isInView }: ContactGridProps) {
             <Mail className="w-5 h-5 text-portfolio-accent" />
             {contactInfo.email}
           </a>
-          <a
-            href={`tel:${contactInfo.phone.replace(/[^+\d]/g, '')}`}
-            className="font-sans flex items-center gap-3 text-[#a0a0a0] hover:text-white transition-colors duration-300"
-          >
-            <Phone className="w-5 h-5 text-portfolio-accent" />
-            {contactInfo.phone}
-          </a>
+          {contactInfo.phone && (
+            <a
+              href={`tel:${contactInfo.phone.replace(/[^+\d]/g, '')}`}
+              className="font-sans flex items-center gap-3 text-[#a0a0a0] hover:text-white transition-colors duration-300"
+            >
+              <Phone className="w-5 h-5 text-portfolio-accent" />
+              {contactInfo.phone}
+            </a>
+          )}
           <div className="font-sans flex items-center gap-3 text-[#a0a0a0]">
             <MapPin className="w-5 h-5 text-portfolio-accent" />
             {contactInfo.location}

@@ -5,6 +5,7 @@ import { useRef } from 'react'
 import { projects } from '@/data/projects'
 import { SectionHeader, Container } from '../shared'
 import { ProjectCard } from './ProjectCard'
+import { GitHubCard } from './GitHubCard'
 
 export function Projects() {
   const ref = useRef(null)
@@ -30,6 +31,7 @@ export function Projects() {
           {projects.map((project, index) => (
             <ProjectCard key={project.slug} project={project} index={index} />
           ))}
+          <GitHubCard index={projects.length} />
         </div>
       </Container>
     </section>
