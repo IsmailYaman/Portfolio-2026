@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'motion/react'
 import { useRef } from 'react'
-import { useMouseParallax, Container } from './shared'
+import { useMouseParallax, Container, SectionHeader } from './shared'
 
 export function About() {
   const ref = useRef(null)
@@ -84,20 +84,13 @@ export function About() {
 
           {/* Right column - Content */}
           <div className="space-y-8 order-1 lg:order-2">
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="font-sans text-portfolio-accent font-medium tracking-[0.2em] uppercase text-sm">
-                About Me
-              </span>
-              <h2 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-medium text-portfolio-text mt-4 leading-[1.1]">
-              The 
-                <br />
-                <span className="italic">Developer</span>
-              </h2>
-            </motion.div>
+            <SectionHeader
+              eyebrow="About Me"
+              title="The"
+              titleHighlight="Developer"
+              isInView={isInView}
+              centered={false}
+            />
 
             <motion.p
               className="font-sans text-[#3a3a3a] text-lg md:text-xl leading-relaxed"

@@ -20,7 +20,7 @@ export function Projects() {
             eyebrow="Selected Work"
             title="Featured"
             titleHighlight="Projects"
-            description="A curated selection of projects that showcase my approach to solving complex problems through thoughtful design and clean code."
+            description="Here's a selection of things I've built. These are the projects I keep coming back to when someone asks what I do. A mix of, web apps and everything in between."
             isInView={isInView}
             centered={true}
           />
