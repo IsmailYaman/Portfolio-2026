@@ -19,7 +19,7 @@ export function TechBadges({ isInView }: TechBadgesProps) {
       <h3 className="font-playfair text-2xl font-normal italic text-portfolio-text mb-8">
         I also work with:
       </h3>
-      <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-8 gap-3">
+      <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-8 gap-4">
         {workedWith.map((item, index) => (
           <motion.div
             key={item.label}
