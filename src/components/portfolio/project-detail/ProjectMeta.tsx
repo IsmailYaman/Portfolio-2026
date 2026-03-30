@@ -17,7 +17,7 @@ export function ProjectMeta({ year, duration, role }: ProjectMetaProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.3 }}
     >
-      <div className="bg-white rounded-2xl p-6 shadow-sm">
+      <div className="bg-white rounded-2xl p-6 border border-portfolio-border hover:border-portfolio-accent/30 hover:bg-portfolio-bg transition-colors duration-300">
         <div className="flex items-center gap-3 text-portfolio-text-muted mb-2">
           <Calendar className="w-4 h-4" />
           <span className="font-sans text-xs uppercase tracking-wider">Year</span>
@@ -25,7 +25,7 @@ export function ProjectMeta({ year, duration, role }: ProjectMetaProps) {
         <p className="font-sans text-portfolio-text font-medium text-lg">{year}</p>
       </div>
 
-      <div className="bg-white rounded-2xl p-6 shadow-sm">
+      <div className="bg-white rounded-2xl p-6 border border-portfolio-border hover:border-portfolio-accent/30 hover:bg-portfolio-bg transition-colors duration-300">
         <div className="flex items-center gap-3 text-portfolio-text-muted mb-2">
           <Clock className="w-4 h-4" />
           <span className="font-sans text-xs uppercase tracking-wider">Duration</span>
@@ -33,7 +33,7 @@ export function ProjectMeta({ year, duration, role }: ProjectMetaProps) {
         <p className="font-sans text-portfolio-text font-medium text-lg">{duration}</p>
       </div>
 
-      <div className="col-span-2 bg-white rounded-2xl p-6 shadow-sm">
+      <div className="col-span-2 bg-white rounded-2xl p-6 border border-portfolio-border hover:border-portfolio-accent/30 hover:bg-portfolio-bg transition-colors duration-300">
         <div className="flex items-center gap-3 text-portfolio-text-muted mb-2">
           <User className="w-4 h-4" />
           <span className="font-sans text-xs uppercase tracking-wider">Role</span>

@@ -15,17 +15,11 @@ export function GitHubCard({ index }: GitHubCardProps) {
       rel="noopener noreferrer"
     >
       <motion.article
-        className="group bg-white rounded-2xl shadow-sm cursor-pointer transition-shadow duration-500 ease-out hover:shadow-xl flex items-center justify-center p-10"
+        className="group bg-white rounded-2xl border border-portfolio-border hover:border-portfolio-accent/30 cursor-pointer transition-colors duration-300 hover:bg-portfolio-bg flex items-center justify-center p-10"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        whileHover={{ y: -6 }}
         viewport={{ once: true, margin: '-50px' }}
-        transition={{
-          duration: 0.7,
-          delay: index * 0.15,
-          ease: 'easeOut',
-          y: { duration: 0.4, ease: 'easeOut' },
-        }}
+        transition={{ duration: 0.7, delay: index * 0.15, ease: 'easeOut' }}
       >
         <div className="flex flex-row items-center gap-4 text-center">
           <div className="flex items-center justify-center w-16 h-16 rounded-full bg-portfolio-bg border border-portfolio-border group-hover:bg-portfolio-accent/10 transition-colors duration-500">

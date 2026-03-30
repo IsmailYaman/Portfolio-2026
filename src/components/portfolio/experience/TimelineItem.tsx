@@ -35,7 +35,7 @@ export function TimelineItem({ item, index, isInView }: TimelineItemProps) {
           isEven ? 'md:pr-8' : 'md:pl-8'
         }`}
       >
-        <div className="bg-white p-6 rounded-xl shadow-md border border-portfolio-border/50 transition-all duration-150 hover:shadow-xl hover:-translate-y-1 hover:border-portfolio-accent/30">
+        <div className="bg-white p-8 rounded-2xl border border-portfolio-border hover:border-portfolio-accent/30 transition-colors duration-300 hover:bg-portfolio-bg">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-12 h-12 rounded-lg bg-portfolio-bg p-2 flex-shrink-0">
               <img

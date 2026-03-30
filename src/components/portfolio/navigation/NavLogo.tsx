@@ -21,7 +21,6 @@ export function NavLogo({ isHomePage, isScrolled }: NavLogoProps) {
     >
       <motion.span
         className="font-playfair relative text-xl italic font-medium transition-colors duration-300 group text-portfolio-text whitespace-nowrap"
-        whileHover={{ scale: 1.02 }}
       >
         I
         <motion.span

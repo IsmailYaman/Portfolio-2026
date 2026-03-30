@@ -3,8 +3,8 @@
 import { motion, useInView } from 'motion/react'
 import { useRef } from 'react'
 import { Container } from '../shared'
-import { skillCategories } from '@/data/skills'
-import { SkillCategory } from './SkillCategory'
+import { featuredSkills } from '@/data/skills'
+import { SkillCard } from './SkillCard'
 import { TechBadges } from './TechBadges'
 
 export function Skills() {
@@ -40,21 +40,39 @@ export function Skills() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            I'm constantly expanding my toolkit, but here are the technologies I
-            reach for most often. I believe in choosing the right tool for each
-            project rather than forcing a one-size-fits-all approach.
+            I'm constantly learning new stuff, but here is my go-to stack that I use most often. I believe in choosing the right tool for each project rather than forcing a one-size-fits-all approach.
           </motion.p>
         </div>
 
-        {/* Skill bars */}
-        <div className="grid md:grid-cols-3 gap-12 mb-20">
-          {skillCategories.map((category, index) => (
-            <SkillCategory
-              key={category.title}
-              category={category}
-              categoryIndex={index}
-              isInView={isInView}
-            />
+        {/* Bento grid - Row 1 */}
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-4">
+          {featuredSkills.slice(0, 2).map((skill, index) => (
+            <div
+              key={skill.id}
+              className={
+                skill.colSpan === 3
+                  ? 'col-span-1 md:col-span-3'
+                  : 'col-span-1 md:col-span-2'
+              }
+            >
+              <SkillCard skill={skill} index={index} isInView={isInView} />
+            </div>
+          ))}
+        </div>
+
+        {/* Bento grid - Row 2 */}
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-20">
+          {featuredSkills.slice(2).map((skill, index) => (
+            <div
+              key={skill.id}
+              className={
+                skill.colSpan === 2
+                  ? 'col-span-1 md:col-span-2'
+                  : 'col-span-1 md:col-span-3'
+              }
+            >
+              <SkillCard skill={skill} index={index + 2} isInView={isInView} />
+            </div>
           ))}
         </div>
 

@@ -39,7 +39,7 @@ export function ProjectContent({ project }: ProjectContentProps) {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {/* Technologies */}
-            <div className="bg-white rounded-2xl p-6 shadow-sm">
+            <div className="bg-white rounded-2xl p-6 border border-portfolio-border hover:border-portfolio-accent/30 hover:bg-portfolio-bg transition-colors duration-300">
               <h3 className="font-playfair text-lg font-medium text-portfolio-text mb-4">
                 Technologies
               </h3>
@@ -56,7 +56,7 @@ export function ProjectContent({ project }: ProjectContentProps) {
             </div>
 
             {/* Key Highlights */}
-            <div className="bg-white rounded-2xl p-6 shadow-sm">
+            <div className="bg-white rounded-2xl p-6 border border-portfolio-border hover:border-portfolio-accent/30 hover:bg-portfolio-bg transition-colors duration-300">
               <h3 className="font-playfair text-lg font-medium text-portfolio-text mb-4">
                 Key Highlights
               </h3>

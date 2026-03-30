@@ -85,7 +85,7 @@ export function Hero() {
           {/* CTA Button */}
           <motion.button
             onClick={scrollToProjects}
-            className="font-sans group inline-flex items-center gap-3 bg-portfolio-text text-white px-8 py-4 rounded-full font-medium text-base hover:bg-portfolio-accent transition-all duration-300 ease-out shadow-lg hover:shadow-xl"
+            className="font-sans group hover:cursor-pointer inline-flex items-center gap-3 bg-portfolio-text text-white px-8 py-4 rounded-full font-medium text-base hover:bg-portfolio-accent transition-all duration-300 ease-out"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}

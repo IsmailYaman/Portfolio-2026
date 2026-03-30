@@ -14,17 +14,11 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
   return (
     <Link to="/projects/$slug" params={{ slug: project.slug }}>
       <motion.article
-        className="group bg-white rounded-2xl overflow-hidden shadow-sm cursor-pointer transition-shadow duration-500 ease-out hover:shadow-xl"
+        className="group bg-white rounded-2xl overflow-hidden border border-portfolio-border hover:border-portfolio-accent/30 cursor-pointer transition-colors duration-300 hover:bg-portfolio-bg"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        whileHover={{ y: -6 }}
         viewport={{ once: true, margin: '-50px' }}
-        transition={{
-          duration: 0.7,
-          delay: index * 0.15,
-          ease: 'easeOut',
-          y: { duration: 0.4, ease: 'easeOut' },
-        }}
+        transition={{ duration: 0.7, delay: index * 0.15, ease: 'easeOut' }}
       >
         {/* Image container */}
         <div className="relative aspect-[4/3] overflow-hidden">
