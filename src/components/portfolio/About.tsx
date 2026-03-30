@@ -4,12 +4,6 @@ import { motion, useInView } from 'motion/react'
 import { useRef } from 'react'
 import { useMouseParallax, Container } from './shared'
 
-const STATS = [
-  { id: 'projects', number: '4+', label: 'Years of Experience' },
-  { id: 'clients', number: '15+', label: 'Happy Clients' },
-  { id: 'goal', number: '∞', label: 'Curiosity & Continuous Learning' },
-]
-
 export function About() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
@@ -99,9 +93,9 @@ export function About() {
                 About Me
               </span>
               <h2 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-medium text-portfolio-text mt-4 leading-[1.1]">
-                Driven by
+              The 
                 <br />
-                <span className="italic">curiosity</span>
+                <span className="italic">Developer</span>
               </h2>
             </motion.div>
 
@@ -111,12 +105,11 @@ export function About() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              I am passionate about building digital products that combine
-              strong functionality with refined visual design. I work across the
-              full frontend spectrum, from engineering scalable interfaces to
-              shaping user focused designs. I enjoy translating complex
-              requirements into intuitive, high quality experiences that perform
-              reliably in production environments.
+              I'm a full stack engineer based in the Netherlands with 4+ years
+              of experience building web apps and e-commerce solutions. I work
+              mostly with React, TypeScript, Next.js and Laravel and I'm
+              comfortable everywhere in the stack, from database design to the
+              last CSS tweak.
             </motion.p>
 
             <motion.p
@@ -125,11 +118,12 @@ export function About() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              Outside of development, I focus on discipline and continuous
-              improvement. I spend a lot of time in the gym, where bodybuilding
-              helps me maintain focus and consistency. I also enjoy working on
-              my car, which gives me space to think, solve problems hands on,
-              and recharge creatively.
+              Outside of work I spend time in the gym and tinkering with my car.
+              Both teach you the same thing:{' '}
+              <span className="italic font-playfair text-portfolio-accent">
+                details matter
+              </span>
+              , and shortcuts always show up later.
             </motion.p>
 
             {/* Design Philosophy */}
@@ -140,39 +134,13 @@ export function About() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <h3 className="font-playfair text-xl md:text-2xl text-portfolio-text mb-4 italic">
-                What I Care About
+                My Approach
               </h3>
               <p className="font-sans text-portfolio-text-muted text-base md:text-lg leading-relaxed">
-                I care about building software that lasts. That means writing
-                maintainable code, designing consistent systems, and creating
-                experiences users trust. I believe the best digital products
-                come from strong collaboration between design, engineering, and
-                product, supported by thoughtful technical decisions.
+                Good software is rarely about the big decisions. It's about a
+                thousand small ones made consistently. That's what I try to
+                focus on.
               </p>
-            </motion.div>
-
-            {/* Stats */}
-            <motion.div
-              className="grid grid-cols-3 gap-8 pt-8"
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              {STATS.map((stat) => (
-                <motion.div
-                  key={stat.id}
-                  className="text-center lg:text-left"
-                  whileHover={{ y: -4 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="font-playfair text-3xl md:text-4xl font-medium text-portfolio-accent">
-                    {stat.number}
-                  </div>
-                  <div className="font-sans text-sm text-portfolio-text-muted mt-1">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              ))}
             </motion.div>
           </div>
         </div>
