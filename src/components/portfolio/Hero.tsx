@@ -61,14 +61,11 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Crafting digital
-            <br />
-            <span className="italic text-portfolio-accent">
-              experiences
-            </span>{' '}
-            that
-            <br />
-            resonate.
+        From backend logic to pixel-perfect UI
+        <br />
+        <span className="italic text-portfolio-accent">
+          I handle the whole stack.
+        </span>
           </motion.h1>
 
           {/* Tagline */}
@@ -78,8 +75,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
           >
-            I build thoughtful, performant interfaces that bridge the gap
-            between beautiful design and seamless functionality.
+            I've built React dashboards, Laravel backends and everything in between. Detail oriented by nature, full stack by trade.
           </motion.p>
 
           {/* CTA Button */}
@@ -92,7 +88,7 @@ export function Hero() {
             whileHover={{ scale: 1.02, y: -2 }}
             whileTap={{ scale: 0.98 }}
           >
-            View My Work
+            See what I've built
             <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-300" />
           </motion.button>
         </div>

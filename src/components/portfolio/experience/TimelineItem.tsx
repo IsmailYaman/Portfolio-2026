@@ -24,7 +24,7 @@ export function TimelineItem({ item, index, isInView }: TimelineItemProps) {
     >
       {/* Icon circle */}
       <div className="absolute left-8 md:left-1/2 -translate-x-1/2 z-10">
-        <motion.div className="w-16 h-16 bg-white rounded-full border-2 border-portfolio-border flex items-center justify-center shadow-lg transition-all duration-150 hover:scale-110 hover:border-portfolio-accent hover:shadow-xl">
+        <motion.div className="w-16 h-16 bg-white rounded-full border-1 border-portfolio-border flex items-center justify-center transition-all duration-150 hover:border-portfolio-accent/30">
           <Icon className="w-6 h-6 text-portfolio-accent" />
         </motion.div>
       </div>
@@ -35,7 +35,7 @@ export function TimelineItem({ item, index, isInView }: TimelineItemProps) {
           isEven ? 'md:pr-8' : 'md:pl-8'
         }`}
       >
-        <div className="bg-white p-8 rounded-2xl border border-portfolio-border hover:border-portfolio-accent/30 transition-colors duration-300 hover:bg-portfolio-bg">
+        <div className="bg-white p-8 rounded-2xl border border-portfolio-border hover:border-portfolio-accent/30 transition-colors duration-300">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-12 h-12 rounded-lg bg-portfolio-bg p-2 flex-shrink-0">
               <img
