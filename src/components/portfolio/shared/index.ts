@@ -1,3 +1,5 @@
 export { SectionHeader } from './SectionHeader'
 export { Container } from './Container'
 export { useMouseParallax } from './hooks'
+export { Paragraph } from './Paragraph'
+export { SubsectionBlock } from './SubsectionBlock'

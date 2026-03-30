@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'motion/react'
 import { useRef } from 'react'
-import { useMouseParallax, Container, SectionHeader } from './shared'
+import { useMouseParallax, Container, SectionHeader, Paragraph, SubsectionBlock } from './shared'
 
 export function About() {
   const ref = useRef(null)
@@ -35,51 +35,6 @@ export function About() {
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-portfolio-text/20 to-transparent" />
             </motion.div>
-
-            {/* Decorative floating elements */}
-            <motion.div
-              className="absolute -top-6 -right-6 w-32 h-32 bg-portfolio-accent/10 rounded-full blur-2xl"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.3, 0.5, 0.3],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              }}
-            />
-            <motion.div
-              className="absolute -bottom-8 -left-8 w-40 h-40 bg-portfolio-accent/5 rounded-full blur-3xl"
-              animate={{
-                scale: [1, 1.3, 1],
-                opacity: [0.2, 0.4, 0.2],
-              }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: 'easeInOut',
-                delay: 1,
-              }}
-            />
-
-            {/* Stats card overlay */}
-            {/* <motion.div
-              className="absolute -bottom-8 -right-8 bg-white p-6 rounded-xl shadow-xl border border-portfolio-border"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              whileHover={{ y: -4, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
-            >
-              <div className="text-center">
-                <div className="font-playfair text-3xl font-medium text-portfolio-accent">
-                  6+
-                </div>
-                <div className="font-sans text-sm text-portfolio-text-muted mt-1">
-                  Years Experience
-                </div>
-              </div>
-            </motion.div> */}
           </motion.div>
 
           {/* Right column - Content */}
@@ -92,49 +47,29 @@ export function About() {
               centered={false}
             />
 
-            <motion.p
-              className="font-sans text-[#3a3a3a] text-lg md:text-xl leading-relaxed"
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
+            <Paragraph isInView={isInView} delay={0.2} size="lg" muted={false}>
               I'm a full stack engineer based in the Netherlands with 4+ years
               of experience building web apps and e-commerce solutions. I work
               mostly with React, TypeScript, Next.js and Laravel and I'm
               comfortable everywhere in the stack, from database design to the
               last CSS tweak.
-            </motion.p>
+            </Paragraph>
 
-            <motion.p
-              className="font-sans text-portfolio-text-muted text-base md:text-lg leading-relaxed"
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
+            <Paragraph isInView={isInView} delay={0.3}>
               Outside of work I spend time in the gym and tinkering with my car.
               Both teach you the same thing:{' '}
               <span className="italic font-playfair text-portfolio-accent">
                 details matter
               </span>
               , and shortcuts always show up later.
-            </motion.p>
+            </Paragraph>
 
             {/* Design Philosophy */}
-            <motion.div
-              className="pt-8 border-t border-portfolio-border"
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <h3 className="font-playfair text-xl md:text-2xl text-portfolio-text mb-4 italic">
-                My Approach
-              </h3>
-              <p className="font-sans text-portfolio-text-muted text-base md:text-lg leading-relaxed">
-                Good software is rarely about the big decisions. It's about a
-                thousand small ones made consistently. That's what I try to
-                focus on.
-              </p>
-            </motion.div>
+            <SubsectionBlock title="My Approach" isInView={isInView}>
+              Good software is rarely about the big decisions. It's about a
+              thousand small ones made consistently. That's what I try to
+              focus on.
+            </SubsectionBlock>
           </div>
         </div>
       </Container>
