@@ -17,7 +17,7 @@ export function TechBadges({ isInView }: TechBadgesProps) {
       transition={{ duration: 0.6, delay: 0.5 }}
     >
       <h3 className="font-playfair text-2xl font-normal italic text-portfolio-text mb-8">
-        I've also worked with:
+        I also work with:
       </h3>
       <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-8 gap-3">
         {workedWith.map((item, index) => (
