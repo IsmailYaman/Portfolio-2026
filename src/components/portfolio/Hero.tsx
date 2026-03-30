@@ -61,11 +61,8 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-        From backend logic to pixel-perfect UI
-        <br />
-        <span className="italic text-portfolio-accent">
-          I handle the whole stack.
-        </span>
+            From Development to Design. I handle the{' '}
+            <span className="italic text-portfolio-accent"> whole stack.</span>
           </motion.h1>
 
           {/* Tagline */}
@@ -75,7 +72,8 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
           >
-            I've built React dashboards, Laravel backends and everything in between. Detail oriented by nature, full stack by trade.
+            I've built React dashboards, Laravel backends and everything in
+            between. Detail oriented by nature, full stack by trade.
           </motion.p>
 
           {/* CTA Button */}
