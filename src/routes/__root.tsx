@@ -8,6 +8,7 @@ import appCss from '../styles.css?url'
 import type { QueryClient } from '@tanstack/react-query'
 import { Toaster } from '@/components/ui/sonner'
 import { ThemeProvider } from 'next-themes'
+import { useEffect } from 'react'
 import { authMiddleware } from '@/server/functions/auth'
 import { LenisProvider } from '@/components/providers'
 
@@ -78,13 +79,31 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
   shellComponent: RootDocument,
 })
 
+function ConsoleEasterEgg() {
+  useEffect(() => {
+    console.log(
+      `%c
+ _   _       _   _     _               _           __ _           _   _                          __
+| \\ | |     | | | |   (_)             | |         / _(_)         | | | |                      _  \\ \\
+|  \\| | ___ | |_| |__  _ _ __   __ _  | |_ ___   | |_ _ _ __   __| | | |__   ___ _ __ ___    (_)  | |
+| . \` |/ _ \\| __| '_  | | '_ \\ / _\` | | __/ _ \\  |  _| | '_ \\ / _\` | | '_ \\ / _ \\ '__/ _ \\        | |
+| |\\  | (_) | |_| | | | | | | | (_| | | || (_) | | | | | | | | (_| | | | | |  __/ | |  __/    _   | |
+\\_| \\_/\\___/ \\__|_| |_|_|_| |_|\\__, |  \\__\\___/  |_| |_|_| |_|\\__,_| |_| |_|\\___|_|  \\___|   (_)  | |
+                                __/ |                                                            /_/
+                               |___/                                                                 `,
+      'color: #c45d3a; font-family: monospace;'
+    )
+  }, [])
+  return null
+}
+
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased relative">
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -94,6 +113,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           <LenisProvider>
             {children}
           </LenisProvider>
+          <ConsoleEasterEgg />
           <Toaster />
         </ThemeProvider>
         <Scripts />

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'motion/react'
-import { useMemo } from 'react'
+import { useEffect, useState } from 'react'
 import { Container } from '../shared'
 import { contactInfo } from '@/data/footer'
 
@@ -24,7 +24,10 @@ interface FooterBottomProps {
 }
 
 export function FooterBottom({ isInView }: FooterBottomProps) {
-  const quote = useMemo(() => QUOTES[Math.floor(Math.random() * QUOTES.length)], [])
+  const [quote, setQuote] = useState('')
+  useEffect(() => {
+    setQuote(QUOTES[Math.floor(Math.random() * QUOTES.length)])
+  }, [])
 
   return (
     <div className="border-t border-white/10 py-8">

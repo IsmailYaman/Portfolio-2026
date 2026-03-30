@@ -26,7 +26,7 @@ export function Timeline({ isInView }: TimelineProps) {
       <div className="space-y-12">
         {experience.map((item, index) => (
           <TimelineItem
-            key={item.title}
+            key={`${item.institution}-${item.date}`}
             item={item}
             index={index}
             isInView={isInView}

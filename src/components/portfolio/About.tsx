@@ -35,7 +35,7 @@ export function About() {
             >
               <img
                 src="/Shadowizzy.png"
-                alt="Ismail Kayadelen - Frontend Developer"
+                alt="Ismail Kayadelen - Full Stack Engineer & Designer"
                 className="w-full h-full object-cover"
               />
               {/* Gradient overlay */}
