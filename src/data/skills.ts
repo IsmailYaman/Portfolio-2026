@@ -17,6 +17,7 @@ import {
   siTanstack,
   siFramer,
   siShopify,
+  siAngular,
 } from 'simple-icons'
 
 export interface FeaturedSkill {
@@ -70,6 +71,7 @@ export const featuredSkills: FeaturedSkill[] = [
 export const workedWith: WorkedWithItem[] = [
   { logo: siTanstack, label: 'Tanstack' },
   { logo: siTailwindcss, label: 'Tailwind' },
+  { logo: siAngular, label: 'Angular' },
   { logo: siGit, label: 'Git' },
   { logo: siGithub, label: 'Github' },
   { logo: siDocker, label: 'Docker' },
