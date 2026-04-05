@@ -84,3 +84,4 @@ export const workedWith: WorkedWithItem[] = [
     { logo: siVercel, label: 'Vercel' },
     { logo: siVite, label: 'Vite' },
 ]
+
