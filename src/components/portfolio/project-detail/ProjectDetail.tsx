@@ -1,7 +1,7 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
-import { motion, useScroll, useTransform } from 'motion/react'
+import { useRef, useEffect, useState } from 'react'
+import { motion, useScroll, useTransform, useMotionValue } from 'motion/react'
 import type { Project } from '@/data/projects'
 import { ProjectHero } from './ProjectHero'
 import { ImageGallery } from './ImageGallery'
@@ -38,8 +38,21 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
     window.scrollTo(0, 0)
   }, [project.slug])
 
-  const headerY = useTransform(scrollYProgress, [0, 0.3], [0, -50])
-  const headerOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
+
+  const headerYScroll = useTransform(scrollYProgress, [0, 0.3], [0, -50])
+  const headerOpacityScroll = useTransform(scrollYProgress, [0, 0.2], [1, 0])
+  const staticY = useMotionValue(0)
+  const staticOpacity = useMotionValue(1)
+
+  const headerY = isMobile ? staticY : headerYScroll
+  const headerOpacity = isMobile ? staticOpacity : headerOpacityScroll
 
   return (
     <div ref={containerRef} className="min-h-screen bg-[#f5f3f0]">
