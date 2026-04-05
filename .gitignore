@@ -13,3 +13,10 @@ count.txt
 todos.json
 .eslintcache
 appwrite.json
+.agents/
+.claude/
+.codex/
+.cursor/
+.gemini/
+.opencode/
+.vscode/
