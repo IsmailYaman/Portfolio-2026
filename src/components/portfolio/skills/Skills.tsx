@@ -87,5 +87,5 @@ export function Skills() {
         <TechBadges isInView={isInView} />
       </Container>
     </section>
-  )
+  ) 
 }
