@@ -9,7 +9,6 @@ import type { QueryClient } from '@tanstack/react-query'
 import { Toaster } from '@/components/ui/sonner'
 import { ThemeProvider } from 'next-themes'
 import { useEffect } from 'react'
-import { authMiddleware } from '@/server/functions/auth'
 import { LenisProvider } from '@/components/providers'
 
 interface MyRouterContext {
@@ -29,13 +28,6 @@ if (import.meta.env.VITE_INSTRUMENTATION_SCRIPT_SRC) {
 }
 
 export const Route = createRootRouteWithContext<MyRouterContext>()({
-  loader: async () => {
-    const { currentUser } = await authMiddleware()
-
-    return {
-      currentUser,
-    }
-  },
   head: () => ({
     meta: [
       {

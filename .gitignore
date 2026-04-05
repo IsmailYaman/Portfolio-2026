@@ -5,9 +5,11 @@ dist-ssr
 *.local
 count.txt
 .env
+.env.*
 .nitro
 .tanstack
 .output
 .vinxi
 todos.json
 .eslintcache
+appwrite.json
