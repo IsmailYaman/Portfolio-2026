@@ -32,7 +32,7 @@ export const Route = createFileRoute('/_public/projects/$slug')({
         </p>
         <a
           href="/#projects"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-[#c45d3a] text-white rounded-full hover:bg-[#a34d30] transition-colors duration-300"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-[#753d9f] text-white rounded-full hover:bg-[#5e2f82] transition-colors duration-300"
           style={{ fontFamily: "'DM Sans', sans-serif" }}
         >
           Back to Projects

@@ -39,7 +39,7 @@ export const featuredSkills: FeaturedSkill[] = [
     logo: siReact,
     title: 'React & Next.js',
     description:
-      'Building performant, scalable web applications with the React ecosystem. From server components to client-side animations, I craft interfaces that feel fast and intentional.',
+      'For years now, I have been using React and Next.js to build web applications. I have a good understanding of the React ecosystem and how to use it to build performant, scalable web applications in combination with Next.js.',
     colSpan: 3,
   },
   {
@@ -47,7 +47,7 @@ export const featuredSkills: FeaturedSkill[] = [
     logo: siTypescript,
     title: 'TypeScript',
     description:
-      'Writing type-safe code that scales. TypeScript is my default — it catches errors early and makes large codebases a pleasure to navigate.',
+      'After years of using JavaScript, I have switched to TypeScript as it is a type-safe language that helps me catch errors early and makes large codebases a pleasure to navigate.',
     colSpan: 2,
   },
   {
@@ -55,7 +55,7 @@ export const featuredSkills: FeaturedSkill[] = [
     logo: siLaravel,
     title: 'Laravel',
     description:
-      'Building robust backend systems and APIs with Laravel. From authentication to queues and scheduled tasks, I leverage the full ecosystem to ship reliable server-side applications.',
+      'Laravel gave me a new perspective on how to approach backend development. As a mainly frontend developer, I have a good understanding of the Laravel ecosystem and how to use it to build robust backend systems and APIs.',
     colSpan: 2,
   },
   {
@@ -63,24 +63,24 @@ export const featuredSkills: FeaturedSkill[] = [
     logo: siClaude,
     title: 'Claude Code',
     description:
-      "Using AI-assisted development as a core part of my workflow. Claude Code helps me move faster, think through architecture, and tackle problems I'd otherwise spend hours on.",
+      'Since the introduction of Claude Code, I have been using it to help me with my development. It has helped me move faster, think through architecture, and tackle problems I\'d otherwise spend hours on. It gave me a new perspective on how to approach development. I believe that with the help of AI, we can build better software faster and more efficiently.',
     colSpan: 3,
   },
 ]
 
 export const workedWith: WorkedWithItem[] = [
-  { logo: siTanstack, label: 'Tanstack' },
-  { logo: siTailwindcss, label: 'Tailwind' },
-  { logo: siAngular, label: 'Angular' },
-  { logo: siGit, label: 'Git' },
-  { logo: siGithub, label: 'Github' },
-  { logo: siDocker, label: 'Docker' },
-  { logo: siJira, label: 'Jira' },
-  { logo: siBlender, label: 'Blender' },
-  { logo: siFigma, label: 'Figma' },
-  { logo: siVite, label: 'Vite' },
-  { logo: siStorybook, label: 'Storybook' },
-  { logo: siFramer, label: 'Framer' },
-  { logo: siShopify, label: 'Shopify' },
-  { logo: siVercel, label: 'Vercel' },
+    { logo: siAngular, label: 'Angular' },
+    { logo: siBlender, label: 'Blender' },
+    { logo: siDocker, label: 'Docker' },
+    { logo: siFramer, label: 'Framer' },
+    { logo: siFigma, label: 'Figma' },
+    { logo: siGit, label: 'Git' },
+    { logo: siGithub, label: 'Github' },
+    { logo: siJira, label: 'Jira' },
+    { logo: siShopify, label: 'Shopify' },
+    { logo: siStorybook, label: 'Storybook' },
+    { logo: siTailwindcss, label: 'Tailwind' },
+    { logo: siTanstack, label: 'Tanstack' },
+    { logo: siVercel, label: 'Vercel' },
+    { logo: siVite, label: 'Vite' },
 ]

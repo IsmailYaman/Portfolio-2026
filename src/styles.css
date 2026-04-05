@@ -95,10 +95,10 @@ code {
   --font-sans: 'DM Sans', sans-serif;
 
   /* Portfolio color palette */
-  --color-portfolio-bg: #f9f8f7;
-  --color-portfolio-bg-alt: #fbfaf9;
-  --color-portfolio-accent: #c45d3a;
-  --color-portfolio-accent-hover: #a34d30;
+  --color-portfolio-bg: #f8f7f9;
+  --color-portfolio-bg-alt: #faf9fb;
+  --color-portfolio-accent: #753d9f;
+  --color-portfolio-accent-hover: #5e2f82;
   --color-portfolio-text: #1a1a1a;
   --color-portfolio-text-muted: #5a5a5a;
   --color-portfolio-border: #e8e4df;

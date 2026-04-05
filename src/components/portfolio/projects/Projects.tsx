@@ -12,7 +12,7 @@ export function Projects() {
   const isInView = useInView(ref, { once: true, margin: '-50px' })
 
   return (
-    <section id="projects" className="py-32 md:py-40 bg-portfolio-bg" ref={ref}>
+    <section id="projects" className="py-32 md:py-40 bg-white" ref={ref}>
       <Container>
         {/* Section header */}
         <div className="mb-20">
@@ -27,7 +27,7 @@ export function Projects() {
         </div>
 
         {/* Projects grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <ProjectCard key={project.slug} project={project} index={index} />
           ))}

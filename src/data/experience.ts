@@ -11,11 +11,11 @@ export interface ExperienceItem {
 
 export const experience: ExperienceItem[] = [
   {
-    title: 'Frontend Developer',
+    title: 'Full Stack Developer',
     institution: 'Notive',
     date: 'May 2024 - Present',
     description:
-      'Returned to Notive as a frontend developer, building modern web applications and contributing to the technical direction of projects.',
+      'Returned to Notive as a frontend developer, building modern web applications and contributing to the technical direction of projects. Also working on backend projects and other technical stuff.',
     icon: Briefcase,
     logo: '/logos/notive.png',
   },

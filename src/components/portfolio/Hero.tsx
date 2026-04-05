@@ -72,8 +72,8 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
           >
-            I've built React dashboards, Laravel backends and everything in
-            between. Detail oriented by nature, full stack by trade.
+            React, TypeScript, Laravel — I build across the full stack and
+            think about the smalldetails most people skip.
           </motion.p>
 
           {/* CTA Button */}

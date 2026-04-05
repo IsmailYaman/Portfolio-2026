@@ -91,7 +91,7 @@ function ConsoleEasterEgg() {
 \\_| \\_/\\___/ \\__|_| |_|_|_| |_|\\__, |  \\__\\___/  |_| |_|_| |_|\\__,_| |_| |_|\\___|_|  \\___|   (_)  | |
                                 __/ |                                                            /_/
                                |___/                                                                 `,
-      'color: #c45d3a; font-family: monospace;'
+      'color: #753d9f; font-family: monospace;'
     )
   }, [])
   return null

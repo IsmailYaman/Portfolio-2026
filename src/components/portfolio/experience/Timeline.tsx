@@ -12,7 +12,7 @@ export function Timeline({ isInView }: TimelineProps) {
   return (
     <div className="relative max-w-3xl mx-auto">
       <motion.div
-        className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#c45d3a] via-[#c45d3a]/50 to-[#c45d3a]/20 -translate-x-1/2"
+        className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#753d9f] via-[#753d9f]/50 to-[#753d9f]/20 -translate-x-1/2"
         initial={{ scaleY: 0, opacity: 0 }}
         animate={isInView ? { scaleY: 1, opacity: 1 } : {}}
         transition={{

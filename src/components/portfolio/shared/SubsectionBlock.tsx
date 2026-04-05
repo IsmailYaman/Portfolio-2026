@@ -18,7 +18,7 @@ export function SubsectionBlock({
 }: SubsectionBlockProps) {
   return (
     <motion.div
-      className="pt-8 border-t border-portfolio-border"
+      className="pt-12 border-t border-portfolio-border"
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay }}

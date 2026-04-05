@@ -59,8 +59,8 @@ export function DesktopNav({
         transition={{ duration: 0.4 }}
         whileHover={{
           scale: 1.05,
-          backgroundColor: '#c45d3a',
-          boxShadow: '0 8px 24px rgba(196, 93, 58, 0.3)',
+          backgroundColor: '#753d9f',
+          boxShadow: '0 8px 24px rgba(117, 61, 159, 0.3)',
           transition: { duration: 0.2, ease: 'easeOut' },
         }}
         whileTap={{ scale: 0.95 }}
