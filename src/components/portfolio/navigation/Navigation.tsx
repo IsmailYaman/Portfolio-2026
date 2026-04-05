@@ -37,6 +37,8 @@ export function Navigation() {
     [isHomePage]
   )
 
+  const showFab = isScrolled
+
   return (
     <>
       {/* Desktop pill nav */}
@@ -87,41 +89,66 @@ export function Navigation() {
         </motion.nav>
       </motion.header>
 
-      {/* Mobile bottom pill */}
-      <div
-        className="md:hidden fixed bottom-0 left-0 right-0 z-50 flex justify-center pointer-events-none"
-        style={{ paddingBottom: 'max(1.5rem, env(safe-area-inset-bottom))' }}
+      {/* Mobile top pill — visible at top of page */}
+      <motion.div
+        className="md:hidden fixed top-4 left-0 right-0 z-50 flex justify-center pointer-events-none"
+        animate={{
+          opacity: isScrolled ? 0 : 1,
+          y: isScrolled ? -16 : 0,
+        }}
+        transition={{ duration: 0.25, ease: [0.32, 0.72, 0, 1] }}
+        style={{ pointerEvents: isScrolled ? 'none' : 'auto' }}
       >
         <motion.nav
-          className="pointer-events-auto flex items-center rounded-full"
-          initial={{ y: 100, opacity: 0 }}
-          animate={{
-            y: isMobileMenuOpen ? 20 : 0,
-            opacity: isMobileMenuOpen ? 0 : 1,
-            backgroundColor: 'rgba(255, 255, 255, 0.85)',
-            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.06), inset 0 0 0 1px rgba(0, 0, 0, 0.04)',
-          }}
-          transition={{
-            y: { duration: 0.3, ease: [0.32, 0.72, 0, 1] },
-            opacity: { duration: 0.2 },
-            backgroundColor: { duration: 0.4 },
-            boxShadow: { duration: 0.4 },
-            default: { delay: isMobileMenuOpen ? 0 : 0.2 },
-          }}
+          className="pointer-events-auto flex items-center rounded-full pl-4 pr-1 py-1"
+          initial={{ y: -60, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.2, ease: [0.32, 0.72, 0, 1] }}
           style={{
+            backgroundColor: 'rgba(255, 255, 255, 0.85)',
             backdropFilter: 'blur(16px)',
             WebkitBackdropFilter: 'blur(16px)',
+            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.06), inset 0 0 0 1px rgba(0, 0, 0, 0.04)',
           }}
         >
-          <div className="pl-4 pr-1 py-1 whitespace-nowrap">
-            <NavLogo isHomePage={isHomePage} isScrolled={false} />
-          </div>
+          <NavLogo isHomePage={isHomePage} isScrolled={false} />
           <MobileMenuButton
             isOpen={isMobileMenuOpen}
             onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           />
         </motion.nav>
-      </div>
+      </motion.div>
+
+      {/* Mobile bottom-right FAB — appears on scroll, hides at footer */}
+      <motion.div
+        className="md:hidden fixed z-50"
+        style={{
+          bottom: 'max(1.5rem, env(safe-area-inset-bottom))',
+          right: '1rem',
+          pointerEvents: showFab ? 'auto' : 'none',
+        }}
+        animate={{
+          opacity: showFab ? 1 : 0,
+          scale: showFab ? 1 : 0.7,
+          y: showFab ? 0 : 12,
+        }}
+        transition={{ duration: 0.25, ease: [0.32, 0.72, 0, 1] }}
+      >
+        <div
+          style={{
+            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.12), inset 0 0 0 1px rgba(0, 0, 0, 0.06)',
+            borderRadius: '9999px',
+          }}
+        >
+          <MobileMenuButton
+            isOpen={isMobileMenuOpen}
+            onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          />
+        </div>
+      </motion.div>
 
       <MobileMenu
         isOpen={isMobileMenuOpen}
