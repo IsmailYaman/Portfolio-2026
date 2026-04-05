@@ -56,12 +56,12 @@ export function Hero() {
 
           {/* Main headline */}
           <motion.h1
-            className="font-playfair text-5xl md:text-7xl lg:text-8xl font-medium text-portfolio-text leading-[0.95] tracking-[-0.02em] mb-8"
+            className="font-playfair text-5xl md:text-7xl lg:text-8xl md:max-w-2xl max-w-md font-medium text-portfolio-text leading-[0.95] tracking-[-0.02em] mb-8"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            From Development to Design. I handle the{' '}
+            Development to Design. I handle the{' '}
             <span className="italic text-portfolio-accent"> whole stack.</span>
           </motion.h1>
 

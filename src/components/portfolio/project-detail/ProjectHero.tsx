@@ -94,7 +94,7 @@ export function ProjectHero({
                   style={{ backgroundColor: project.color }}
                 >
                   <ExternalLink className="w-4 h-4" />
-                  View Live Site
+                  {project.buttonLabel}
                 </a>
               )}
               {project.githubUrl && (

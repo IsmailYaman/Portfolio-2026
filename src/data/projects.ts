@@ -8,6 +8,7 @@ export interface Project {
   tags: string[]
   color: string
   liveUrl?: string
+  buttonLabel?: string
   githubUrl?: string
   year: string
   role: string
@@ -28,6 +29,7 @@ export const projects: Project[] = [
     tags: ['Framer'],
     color: '#d00003',
     liveUrl: 'https://www.purefuelsolution.com/',
+    buttonLabel: 'Visit website',
     year: '2025',
     role: 'Web Designer & Developer',
     duration: '3 weeks',
@@ -47,6 +49,7 @@ export const projects: Project[] = [
     tags: ['Framer', 'React'],
     color: '#111111',
     liveUrl: 'https://yamotion.com/',
+    buttonLabel: 'Visit website',
     year: '2024',
     role: 'Founder & Developer',
     duration: 'Ongoing',
@@ -68,6 +71,7 @@ This website was created to showcase their wide range of products and services, 
     tags: ['Framer', 'React'],
     color: '#06beff',
     liveUrl: 'https://global-pow.com/',
+    buttonLabel: 'Visit website',
     year: '2024',
     role: 'Web Designer & Developer',
     duration: '3 weeks',
@@ -89,6 +93,7 @@ The portfolio highlights his hard skills — Python, SQL, Power BI, Tableau — 
     tags: ['Next.js', 'React', 'Tailwind CSS'],
     color: '#00a5f4',
     liveUrl: 'https://ajeethmuthu.vercel.app/',
+    buttonLabel: 'Visit website',
     year: '2025',
     role: 'Web Designer & Developer',
     duration: '3 weeks',
@@ -110,6 +115,7 @@ CP-AR was my thesis project that I had the opportunity to develop for my studies
     tags: ['A-Frame', '8th Wall', 'Blender'],
     color: '#c0392b',
     liveUrl: 'https://cp-ar.vercel.app/',
+    buttonLabel: 'Visit website (mobile recommended)',
     year: '2024',
     role: 'XR Developer',
     duration: '5 months',
@@ -132,6 +138,7 @@ This was the second project with the game development minor. As an artist within
     tags: ['Unity', 'Blender', 'Illustrator'],
     color: '#4d4d4d',
     liveUrl: 'https://store.steampowered.com/app/1809760/Achromira/',
+    buttonLabel: 'Play game',
     year: '2022',
     role: '3D Artist',
     duration: '4 months',

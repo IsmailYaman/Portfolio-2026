@@ -53,6 +53,8 @@ export function ContactGrid({ isInView }: ContactGridProps) {
               <motion.a
                 key={social.name}
                 href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center hover:bg-portfolio-accent transition-colors duration-300"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -72,7 +74,15 @@ export function ContactGrid({ isInView }: ContactGridProps) {
           {quickLinks.map((link) => (
             <a
               key={link}
-              href={`#${link.toLowerCase()}`}
+              href={`/#${link.toLowerCase()}`}
+              onClick={(e) => {
+                if (window.location.pathname === '/') {
+                  e.preventDefault()
+                  document
+                    .getElementById(link.toLowerCase())
+                    ?.scrollIntoView({ behavior: 'smooth' })
+                }
+              }}
               className="font-sans block text-[#a0a0a0] hover:text-white hover:translate-x-2 transition-all duration-300"
             >
               {link}
