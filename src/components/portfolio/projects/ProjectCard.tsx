@@ -37,12 +37,6 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             </span>
             <ArrowRight className="w-4 h-4 text-portfolio-accent" />
           </div>
-
-          {/* Color accent bar */}
-          <div
-            className="absolute top-0 left-0 w-full h-1 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"
-            style={{ backgroundColor: project.color }}
-          />
         </div>
 
         {/* Content */}

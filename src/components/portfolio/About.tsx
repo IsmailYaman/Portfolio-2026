@@ -48,11 +48,8 @@ export function About() {
             />
 
             <Paragraph isInView={isInView} delay={0.2} size="lg" muted={false}>
-              I'm a full stack engineer based in the Netherlands with 4+ years
-              of experience building web apps and e-commerce solutions. I work
-              mostly with React, TypeScript, Next.js and Laravel and I'm
-              comfortable everywhere in the stack, from database design to the
-              last CSS tweak.
+              I'm a web developer based in the Netherlands with 4+ years
+              of experience building web apps and e-com solutions.
             </Paragraph>
 
             <Paragraph isInView={isInView} delay={0.3}>
