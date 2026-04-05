@@ -49,12 +49,6 @@ export function NavLogo({ isHomePage, isScrolled }: NavLogoProps) {
         >
           ayadelen
         </motion.span>
-        <motion.span
-          className="absolute -bottom-1 left-0 h-0.5 bg-portfolio-accent"
-          initial={{ width: 0 }}
-          whileHover={{ width: '100%' }}
-          transition={{ duration: 0.3 }}
-        />
       </motion.span>
     </Link>
   )

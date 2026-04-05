@@ -23,7 +23,12 @@ export function ProjectsDropdown({
   dropdownRef,
 }: ProjectsDropdownProps) {
   return (
-    <div className="relative" ref={dropdownRef}>
+    <div
+      className="relative"
+      ref={dropdownRef}
+      onMouseEnter={() => { if (!isOpen) onToggle() }}
+      onMouseLeave={onClose}
+    >
       <motion.button
         onClick={onToggle}
         className="font-sans relative px-4 py-2 text-sm font-medium transition-colors duration-300 cursor-pointer rounded-full text-portfolio-text-muted hover:text-portfolio-accent"
@@ -41,6 +46,9 @@ export function ProjectsDropdown({
           </motion.span>
         </span>
       </motion.button>
+
+      {/* Invisible bridge that fills the gap between the pill and the dropdown */}
+      <div className="absolute top-full left-0 right-0 h-3" />
 
       <AnimatePresence>
         {isOpen && (

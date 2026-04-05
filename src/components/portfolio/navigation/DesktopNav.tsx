@@ -20,7 +20,7 @@ export function DesktopNav({
   dropdownRef,
 }: DesktopNavProps) {
   return (
-    <div className="hidden md:flex items-center gap-0.5">
+    <div className="hidden md:flex items-center gap-1">
       {navLinks.map((link, index) => {
         if (link.hasDropdown) {
           return (
