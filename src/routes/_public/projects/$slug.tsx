@@ -1,4 +1,6 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
+
+const siteUrl = import.meta.env.VITE_SITE_URL ?? 'https://ismailkayadelen.com'
 import { getProjectBySlug } from '@/data/projects'
 import { ProjectDetail } from '@/components/portfolio/project-detail'
 import { Navigation } from '@/components/portfolio/navigation'
@@ -13,6 +15,29 @@ export const Route = createFileRoute('/_public/projects/$slug')({
     }
 
     return { project }
+  },
+  head: ({ loaderData }) => {
+    if (!loaderData) return {}
+    const { project } = loaderData
+    const title = `${project.title} — Ismail Kayadelen`
+    const image = `${siteUrl}${project.image}`
+    const url = `${siteUrl}/projects/${project.slug}`
+    return {
+      meta: [
+        { title },
+        { name: 'description', content: project.description },
+        { property: 'og:type', content: 'article' },
+        { property: 'og:url', content: url },
+        { property: 'og:title', content: title },
+        { property: 'og:description', content: project.description },
+        { property: 'og:image', content: image },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: title },
+        { name: 'twitter:description', content: project.description },
+        { name: 'twitter:image', content: image },
+      ],
+      links: [{ rel: 'canonical', href: url }],
+    }
   },
   component: ProjectPage,
   notFoundComponent: () => (

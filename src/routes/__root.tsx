@@ -46,18 +46,22 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'Frontend Developer Portfolio',
+        name: 'author',
+        content: 'Ismail Kayadelen',
       },
       {
-        name: 'description',
-        content:
-          'A polished, modern portfolio showcasing creative frontend development expertise with elegant design, smooth animations, and responsive layouts.',
+        name: 'theme-color',
+        content: '#753d9f',
       },
     ],
     links: [
       {
         rel: 'stylesheet',
         href: appCss,
+      },
+      {
+        rel: 'manifest',
+        href: '/manifest.json',
       },
       {
         rel: 'preconnect',
