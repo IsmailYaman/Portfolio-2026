@@ -10,7 +10,7 @@ import { Toaster } from '@/components/ui/sonner'
 import { ThemeProvider } from 'next-themes'
 import { useEffect } from 'react'
 import { LenisProvider } from '@/components/providers'
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 interface MyRouterContext {
   queryClient: QueryClient
