@@ -10,6 +10,7 @@ import { Toaster } from '@/components/ui/sonner'
 import { ThemeProvider } from 'next-themes'
 import { useEffect } from 'react'
 import { LenisProvider } from '@/components/providers'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 interface MyRouterContext {
   queryClient: QueryClient
@@ -114,6 +115,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body className="font-sans antialiased relative">
+        <SpeedInsights />
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
