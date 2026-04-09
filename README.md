@@ -1,4 +1,4 @@
-# 🎨 Terracotta
+# 🎨 My 2026 portfolio
 
 **Elegant developer portfolio template built with modern web technologies**
 
