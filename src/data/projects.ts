@@ -9,6 +9,8 @@ export interface Project {
   color: string
   liveUrl?: string
   buttonLabel?: string
+  secondaryUrl?: string
+  secondaryButtonLabel?: string
   githubUrl?: string
   year: string
   role: string
@@ -17,6 +19,31 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    slug: 'quickshift',
+    title: 'Quickshift',
+    description:
+      'A premium Framer template for luxury car rental businesses, featuring a refined booking flow, curated fleet showcase, and concierge-focused design.',
+    fullDescription: `Quickshift is a Framer template designed for luxury car rental businesses. It comes with everything needed to present a high-end fleet — from Audi and BMW to Lamborghini and Rolls Royce — in a way that matches the prestige of the vehicles.
+
+The template includes a clean booking flow, transparent pricing sections, wedding package pages, and a concierge service layout. It's available for purchase on YAMOTION and is built to be fully customisable out of the box.`,
+    image: '/projects/quickshift.png',
+    tags: ['Framer'],
+    color: '#fa6f41',
+    liveUrl: 'https://quickshift.framer.website/',
+    buttonLabel: 'Visit website',
+    secondaryUrl: 'https://yamotion.com/templates',
+    secondaryButtonLabel: 'Get template',
+    year: '2026',
+    role: 'Template Designer & Developer',
+    duration: '4 weeks',
+    highlights: [
+      'Designed a premium Framer template for luxury car rental brands',
+      'Includes fleet showcase, booking flow, wedding packages, and concierge sections',
+      'Published and available for purchase on YAMOTION',
+      'Built fully responsive with a refined visual identity ready to customise',
+    ],
+  },
   {
     slug: 'pure-fuel-solution',
     title: 'Pure Fuel Solution',
@@ -40,6 +67,28 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: 'global-power-services',
+    title: 'Global Power Services',
+    description:
+      'A website for a generator specialist showcasing their products, maintenance services, and commitment to reliable power solutions.',
+    fullDescription: `This client specialises in providing generators and expertise in maintenance and repair services. Their goal is to ensure reliable power solutions for every customer.
+
+This website was created to showcase their wide range of products and services, as well as their commitment to delivering in the generator industry. With a user-friendly design and detailed content, the platform ensures customers can easily find the right solutions for their power needs.`,
+    image: '/projects/global-pow.png',
+    tags: ['Framer', 'React'],
+    color: '#06beff',
+    liveUrl: 'https://global-pow.com/',
+    buttonLabel: 'Visit website',
+    year: '2025',
+    role: 'Web Designer & Developer',
+    duration: '3 weeks',
+    highlights: [
+      'Designed a clear product and services showcase for a technical audience',
+      'Built with a user-friendly layout to help customers find power solutions quickly',
+      "Delivered a fully responsive site reflecting the client's industry expertise",
+    ],
+  },
+  {
     slug: 'yamotion',
     title: 'YAMOTION',
     description:
@@ -57,28 +106,6 @@ export const projects: Project[] = [
       'Founded and built the full brand identity and website',
       'Specialises in Framer websites and Shopify webshops',
       'Focused on design quality, performance, and user experience',
-    ],
-  },
-  {
-    slug: 'global-power-services',
-    title: 'Global Power Services',
-    description:
-      'A website for a generator specialist showcasing their products, maintenance services, and commitment to reliable power solutions.',
-    fullDescription: `This client specialises in providing generators and expertise in maintenance and repair services. Their goal is to ensure reliable power solutions for every customer.
-
-This website was created to showcase their wide range of products and services, as well as their commitment to delivering in the generator industry. With a user-friendly design and detailed content, the platform ensures customers can easily find the right solutions for their power needs.`,
-    image: '/projects/global-pow.png',
-    tags: ['Framer', 'React'],
-    color: '#06beff',
-    liveUrl: 'https://global-pow.com/',
-    buttonLabel: 'Visit website',
-    year: '2024',
-    role: 'Web Designer & Developer',
-    duration: '3 weeks',
-    highlights: [
-      'Designed a clear product and services showcase for a technical audience',
-      'Built with a user-friendly layout to help customers find power solutions quickly',
-      "Delivered a fully responsive site reflecting the client's industry expertise",
     ],
   },
   {

@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'motion/react'
+import { ExternalLink } from 'lucide-react'
 import type { Project } from '@/data/projects'
 
 interface ProjectContentProps {
@@ -28,6 +29,18 @@ export function ProjectContent({ project }: ProjectContentProps) {
                 <p key={index}>{paragraph}</p>
               ))}
             </div>
+            {project.secondaryUrl && (
+              <a
+                href={project.secondaryUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-sans inline-flex items-center gap-2 px-6 py-3 rounded-full text-white transition-all duration-300 hover:brightness-90 mt-8"
+                style={{ backgroundColor: project.color }}
+              >
+                <ExternalLink className="w-4 h-4" />
+                {project.secondaryButtonLabel}
+              </a>
+            )}
           </motion.div>
 
           {/* Sidebar */}
