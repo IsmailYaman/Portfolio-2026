@@ -30,7 +30,7 @@ export function ProjectsDropdown({
       onMouseLeave={onClose}
     >
       <motion.button
-        onClick={onToggle}
+        onClick={() => { onNavClick('#projects'); onClose() }}
         className="font-sans relative px-4 py-2 text-sm font-medium transition-colors duration-300 cursor-pointer rounded-full text-portfolio-text-muted hover:text-portfolio-accent"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -59,12 +59,6 @@ export function ProjectsDropdown({
             exit={{ opacity: 0, y: -8, scale: 0.95 }}
             transition={{ duration: 0.2 }}
           >
-            <button
-              onClick={() => onNavClick('#projects')}
-              className="font-sans w-full px-4 py-3 cursor-pointer text-left text-sm font-medium text-portfolio-text hover:bg-portfolio-accent/5 hover:text-portfolio-accent transition-colors duration-200 border-b border-portfolio-border/50"
-            >
-              All Projects
-            </button>
             <div className="py-1.5">
               {projects.map((project) => (
                 <Link
