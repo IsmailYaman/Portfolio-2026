@@ -1,9 +1,9 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 const siteUrl = import.meta.env.VITE_SITE_URL ?? 'https://ismailkayadelen.com'
-const title = 'Ismail Kayadelen — Full Stack Engineer'
+const title = 'Ismail Kayadelen — Web Developer & Designer'
 const description =
-  'Full stack engineer based in the Netherlands with 4+ years of experience. Specialising in React, TypeScript, Next.js and Laravel — from database design to the last CSS tweak.'
+  'Web developer & designer based in the Netherlands with 4+ years of experience. Specialising in React, TypeScript, Next.js and Laravel — from database design to the last CSS tweak.'
 import { Hero } from '@/components/portfolio/Hero'
 import { About } from '@/components/portfolio/About'
 import { Projects } from '@/components/portfolio/projects'

@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'motion/react'
 import { useRef } from 'react'
-import { useMouseParallax, Container, SectionHeader, Paragraph, SubsectionBlock } from './shared'
+import { useMouseParallax, Container, SectionHeader, Paragraph } from './shared'
 
 export function About() {
   const ref = useRef(null)
@@ -29,7 +29,7 @@ export function About() {
             >
               <img
                 src="/Shadowizzy.png"
-                alt="Ismail Kayadelen - Full Stack Engineer & Designer"
+                alt="Ismail Kayadelen - Web Developer & Designer"
                 className="w-full h-full object-cover"
               />
               {/* Gradient overlay */}
@@ -61,12 +61,7 @@ export function About() {
               , and shortcuts always show up later.
             </Paragraph>
 
-            {/* Design Philosophy */}
-            <SubsectionBlock title="My Approach" isInView={isInView}>
-              Good software is rarely about the big decisions. It's about a
-              thousand small ones made consistently. That's what I try to
-              focus on.
-            </SubsectionBlock>
+
           </div>
         </div>
       </Container>
