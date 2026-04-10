@@ -73,7 +73,7 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.5 }}
           >
             React, TypeScript, Laravel — I build across the full stack and
-            think about the smalldetails most people skip.
+            think about the small details most people skip.
           </motion.p>
 
           {/* CTA Button */}
